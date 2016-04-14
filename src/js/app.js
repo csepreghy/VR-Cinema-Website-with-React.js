@@ -44,4 +44,4 @@ class BoilerplateScene extends React.Component {
   }
 }
 
-ReactDOM.render(<BoilerplateScene/>, document.querySelector('.scene-container'));
+ReactDOM.render(<BoilerplateScene/>, document.getElementById('scene-container'));
