@@ -30,6 +30,11 @@ class BoilerplateScene extends React.Component {
 
         <Sky/>
 
+        <a-assets>
+          <a-asset-item id="cinema-obj" src="/models/cinema.obj"></a-asset-item>
+          <a-asset-item id="cinema-mtl" src="/models/cinema.mtl"></a-asset-item>
+        </a-assets>
+
         <Entity light={{type: 'ambient', color: '#888'}}/>
         <Entity light={{type: 'directional', intensity: 0.5}} position={[-1, 1, 0]}/>
         <Entity light={{type: 'directional', intensity: 1}} position={[1, 1, 0]}/>
@@ -39,6 +44,7 @@ class BoilerplateScene extends React.Component {
                 position="0 0 -5">
           <Animation attribute="rotation" dur="5000" repeat="indefinite" to="0 360 360"/>
         </Entity>
+        <a-entity obj-model="obj: #cinema-obj; mtl: #cinema-mtl"></a-entity>
       </Scene>
     );
   }
