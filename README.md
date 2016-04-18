@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ## aframe-react-boilerplate
 
 An [aframe-react](https://github.com/ngokevin/aframe-react) boilerplate, combining [A-Frame](https://aframe.io) with React.
@@ -35,3 +36,6 @@ npm run ghpages
 
 And share your project on the [A-Frame Slack](http://aframevr.slack.com/) and
 [awesome-aframe](https://github.com/aframevr/awesome-aframe).
+=======
+# VR-Cinema-Website-with-React.js
+>>>>>>> 6c1392a0754ec50e24880c7ec95def563faac3b3
