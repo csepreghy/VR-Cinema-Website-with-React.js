@@ -6,6 +6,6 @@ export default props => (
           rotation={[-15, 10, 0]}>
     <Entity camera=""
             look-controls=""
-            wasd-controls={{enabled: false}} />
+            wasd-controls={{enabled: true}} />
   </Entity>
 );
