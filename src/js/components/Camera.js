@@ -7,11 +7,11 @@ export default class Camera extends React.Component {
   constructor(props) {
     super(props);
 
+    this.state = { currentPosition: [10, 0, 20]}
   }
     render() {
       return (
-          <Entity position={[10, 0, 20]}
-                  rotation={[0, 0, 0]}>
+          <Entity position={ this.state.currentPosition }>
             <CameraAnimation />
             <Entity camera=""
                     look-controls=""
