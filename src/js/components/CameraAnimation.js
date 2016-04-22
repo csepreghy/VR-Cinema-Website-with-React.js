@@ -6,8 +6,8 @@ export default class CameraAnimation extends React.Component {
     super(props);
 
     this.state = { newPosition:  "0 0 0" };
-
   }
+
   render() {
     return (
           <a-animation

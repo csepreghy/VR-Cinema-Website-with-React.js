@@ -5,7 +5,7 @@ export default props => {
   const geometry = {
     primitive: 'ring',
     radiusInner: 0.01,
-    radiusOuter: 0.016
+    radiusOuter: 0.018
   };
   const material = {
     color: props.color,

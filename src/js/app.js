@@ -5,7 +5,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import Camera from './components/Camera';
-import Cursor from './components/Cursor';
 import Sky from './components/Sky';
 import Assets from './components/Assets';
 import CinemaModel from './components/Cinema-Model';
@@ -20,7 +19,7 @@ class BoilerplateScene extends React.Component {
     return (
       <Scene stats="" fog={{type: 'exponential', color: '#AAA', density: 0.03}}>
         <Assets />
-        <Camera><Cursor/></Camera>
+        <Camera />
 
         <Sky/>
 

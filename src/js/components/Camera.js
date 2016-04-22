@@ -1,6 +1,7 @@
 import {Entity} from 'aframe-react';
 import React from 'react';
 import CameraAnimation from './CameraAnimation';
+import Cursor from './Cursor';
 
 export default class Camera extends React.Component {
   constructor(props) {
@@ -15,6 +16,7 @@ export default class Camera extends React.Component {
             <Entity camera=""
                     look-controls=""
                     wasd-controls={{enabled: true}}>
+              <Cursor />
             </Entity>
           </Entity>
       );
