@@ -1,6 +1,8 @@
 import {Entity} from 'aframe-react';
 import React from 'react';
-import BackIcon from './BackIcon.js';
+import Back from './Back';
+import Check from './Check';
+import ChangeSeat from './ChangeSeat';
 
 export default class Navigation extends React.Component {
   constructor(props) {
@@ -10,7 +12,9 @@ export default class Navigation extends React.Component {
   render() {
     return (
         <Entity>
-          <BackIcon />
+          <Back />
+          <Check />
+          <ChangeSeat />
         </Entity>
     );
   }
