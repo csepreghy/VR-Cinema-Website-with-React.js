@@ -5,7 +5,7 @@ export default class CameraAnimation extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { newPosition:  [0, 0, 0] };
+
   }
 
   render() {
@@ -13,7 +13,7 @@ export default class CameraAnimation extends React.Component {
           <Animation
               attribute="position"
               dur="4000"
-              to={ this.state.newPosition }
+              to={ this.props.newPosition }
           />
     );
   }
