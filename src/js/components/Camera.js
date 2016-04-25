@@ -17,7 +17,7 @@ export default class Camera extends React.Component {
             <Navigation />
             <Entity camera=""
                     look-controls=""
-                    wasd-controls={{enabled: false}}>
+                    wasd-controls={{enabled: true}}>
               <Cursor />
             </Entity>
           </Entity>

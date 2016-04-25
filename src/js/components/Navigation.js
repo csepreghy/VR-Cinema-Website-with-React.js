@@ -1,7 +1,7 @@
 import {Entity} from 'aframe-react';
 import React from 'react';
 import Back from './Back';
-import Check from './Check';
+import BookSeat from './BookSeat';
 import ChangeSeat from './ChangeSeat';
 
 export default class Navigation extends React.Component {
@@ -13,7 +13,7 @@ export default class Navigation extends React.Component {
     return (
         <Entity>
           <Back />
-          <Check />
+          <BookSeat />
           <ChangeSeat />
         </Entity>
     );
