@@ -9,5 +9,9 @@ export default props => (
         <img id="back" src="assets/img/back-icon.png"></img>
         <img id="book-seat" src="assets/img/book-seat-icon.png"></img>
         <img id="change-seat" src="assets/img/change-seat-icon.png"></img>
+
+        <img id="back-text" src="assets/img/back-text.png"></img>
+        <img id="book-seat-text" src="assets/img/book-seat-text.png"></img>
+        <img id="change-seat-text" src="assets/img/change-seat-text.png"></img>
       </a-assets>
 );

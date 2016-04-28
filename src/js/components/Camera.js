@@ -8,13 +8,24 @@ export default class Camera extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { currentPosition: [4, 0, 11] }
+    this.state = { cameraPosition: [3, 0, 0] }
+
+    this.changeCameraPosition = this.changeCameraPosition.bind(this);
   }
-    render() {
+
+  changeCameraPosition() {
+    this.setState({
+      cameraPosition: [1, 1, 5]
+    });
+    console.log(this.state.cameraPosition);
+    document.querySelector('#cameraChangeAnimation').emit('playSeatChangeAnimation');
+  }
+
+  render() {
       return (
-          <Entity position={ this.state.currentPosition }>
-            <CameraAnimation newPosition={ this.state.currentPosition }/>
-            <Navigation />
+          <Entity position={this.props.originalCameraPosition}>
+            <CameraAnimation newPosition={ this.state.cameraPosition }/>
+            <Navigation handleBackClick={ this.changeCameraPosition }/>
             <Entity camera=""
                     look-controls=""
                     wasd-controls={{enabled: true}}>
