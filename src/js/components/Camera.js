@@ -23,7 +23,7 @@ export default class Camera extends React.Component {
 
   render() {
       return (
-          <Entity position={this.props.originalCameraPosition}>
+          <Entity position={ this.props.originalCameraPosition }>
             <CameraAnimation newPosition={ this.state.cameraPosition }/>
             <Navigation handleBackClick={ this.changeCameraPosition }/>
             <Entity camera=""
