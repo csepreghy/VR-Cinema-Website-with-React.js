@@ -8,14 +8,14 @@ export default class Camera extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { cameraPosition: [3, 0, 0] }
+    this.state = { cameraPosition: [0, 200, -1060] }
 
     this.changeCameraPosition = this.changeCameraPosition.bind(this);
   }
 
   changeCameraPosition() {
     this.setState({
-      cameraPosition: [1, 1, 5]
+      cameraPosition: [10, 15, 55]
     });
     console.log(this.state.cameraPosition);
     document.querySelector('#cameraChangeAnimation').emit('playSeatChangeAnimation');

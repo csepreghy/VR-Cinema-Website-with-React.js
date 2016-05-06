@@ -17,15 +17,15 @@ class BoilerplateScene extends React.Component {
 
   render () {
     return (
-      <Scene stats="" fog={{type: 'exponential', color: '#AAA', density: 0.03}}>
+      <Scene stats="" fog={{type: 'exponential', color: '#AAA', density: 0}}>
         <Assets />
-        <Camera originalCameraPosition={[0, 0, 0]}/>
+        <Camera originalCameraPosition={[25, 100, -550]}/>
 
         <Sky/>
 
         <Entity light={{type: 'ambient', color: '#888'}}/>
-        <Entity light={{type: 'directional', intensity: 0.5}} position={[-1, 1, 0]}/>
-        <Entity light={{type: 'directional', intensity: 1}} position={[1, 1, 0]}/>
+        <Entity light={{type: 'directional', intensity: 0.2}} position={[-1, 7000, 0]}/>
+        <Entity light={{type: 'directional', intensity: 0.1}} position={[1, 7000, 0]}/>
 
         <CinemaModel />
       </Scene>

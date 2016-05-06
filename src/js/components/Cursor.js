@@ -4,8 +4,8 @@ import React from 'react';
 export default props => {
   const geometry = {
     primitive: 'ring',
-    radiusInner: 0.012,
-    radiusOuter: 0.022
+    radiusInner: 0.008,
+    radiusOuter: 0.016
   };
   const material = {
     color: props.color,
