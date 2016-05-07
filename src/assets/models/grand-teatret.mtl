@@ -12,14 +12,15 @@ newmtl Mat.3
 Kd 0.830000 0.207500 0.000000
 illum 1
 
-newmtl default_Mat
+newmtl Mat.4
+Kd 0.153061 0.086735 0.000000
 illum 1
 
 newmtl Mat.2
 Kd 1.000000 1.000000 1.000000
 illum 1
 
-newmtl Mat.1
+newmtl floor
 Kd 1.000000 0.380000 0.386813
 illum 1
 
@@ -31,3 +32,6 @@ newmtl Velvet
 Kd 1.000000 0.000000 0.000000
 illum 1
 map_Kd velvet texture.jpg
+
+newmtl default_Mat
+illum 1

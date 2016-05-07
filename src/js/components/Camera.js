@@ -2,18 +2,18 @@ import {Entity} from 'aframe-react';
 import React from 'react';
 import CameraAnimation from './CameraAnimation';
 import Cursor from './Cursor';
-import Navigation from './Navigation';
+import Navigation from './navigation/Navigation';
 
 export default class Camera extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { cameraPosition: [0, 200, -1060] }
+    this.state = { cameraPosition: [0, 400, -1160] }
 
-    this.changeCameraPosition = this.changeCameraPosition.bind(this);
+    this.moveToChangeSeatView = this.moveToChangeSeatView.bind(this);
   }
 
-  changeCameraPosition() {
+  moveToChangeSeatView() {
     this.setState({
       cameraPosition: [10, 15, 55]
     });
@@ -25,7 +25,7 @@ export default class Camera extends React.Component {
       return (
           <Entity position={ this.props.originalCameraPosition }>
             <CameraAnimation newPosition={ this.state.cameraPosition }/>
-            <Navigation handleBackClick={ this.changeCameraPosition }/>
+            <Navigation handleClick={ this.moveToChangeSeatView }/>
             <Entity camera=""
                     look-controls=""
                     wasd-controls={{enabled: true}}>
