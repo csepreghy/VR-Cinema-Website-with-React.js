@@ -4,8 +4,8 @@ import React from 'react';
 export default props => {
   const geometry = {
     primitive: 'ring',
-    radiusInner: 0.008,
-    radiusOuter: 0.016
+    radiusInner: 0.018,
+    radiusOuter: 0.046
   };
   const material = {
     color: props.color,
@@ -17,7 +17,7 @@ export default props => {
     <Entity cursor=""
             geometry={geometry}
             material={material}
-            position="0 0 -1" >
+            position="0 0 -5" >
       <Animation attribute="scale" begin="click" dur="150" fill="backwards"
                  to="0 0 0"/>
       <Animation begin="click"git add

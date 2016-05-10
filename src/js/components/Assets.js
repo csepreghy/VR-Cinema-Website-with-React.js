@@ -1,8 +1,8 @@
-import {Entity} from 'aframe-react';
 import React from 'react';
 
 export default props => (
       <a-assets>
+              
         <a-asset-item id="cinema-obj" src="assets/models/Grand-Teatret.obj"></a-asset-item>
         <a-asset-item id="cinema-mtl" src="assets/models/Grand-Teatret.mtl"></a-asset-item>
 
@@ -13,5 +13,9 @@ export default props => (
         <img id="back-text" src="assets/img/back-text.png"></img>
         <img id="book-seat-text" src="assets/img/book-seat-text.png"></img>
         <img id="change-seat-text" src="assets/img/change-seat-text.png"></img>
+
+        <img id="a14" src="assets/img/seats/a14.png"></img>
+        <img id="b14" src="assets/img/seats/b14.png"></img>
+
       </a-assets>
 );

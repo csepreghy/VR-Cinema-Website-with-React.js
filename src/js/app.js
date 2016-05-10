@@ -19,7 +19,7 @@ class BoilerplateScene extends React.Component {
     return (
       <Scene stats="" fog={{type: 'exponential', color: '#AAA', density: 0}}>
         <Assets />
-        <Camera originalCameraPosition={[25, 100, -550]}/>
+        <Camera originalCameraPosition={[2, 12, -57]}/>
 
         <Sky/>
 

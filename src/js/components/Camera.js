@@ -8,7 +8,7 @@ export default class Camera extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { cameraPosition: [0, 400, -1160] }
+    this.state = { cameraPosition: [0, 35, -110] }
 
     this.moveToChangeSeatView = this.moveToChangeSeatView.bind(this);
   }
