@@ -11,7 +11,7 @@ export default class Seats extends React.Component {
   render() {
     return (
         <Entity>
-          <A14 />
+          <A14 a14={ this.props.a14 }/>
           <B14 />
         </Entity>
     );

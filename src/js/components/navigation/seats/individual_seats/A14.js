@@ -5,24 +5,18 @@ export default class A14 extends React.Component {
   constructor(props) {
     super(props);
 
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  handleClick() {
-    console.log("kakika");
   }
 
   render() {
     return (
-        <Entity position={[1558, 300, 0]}
-                rotation={[0, 270, 0]}>
+        <Entity position={[10, 40, -114]}
+                rotation={[0, 0, 0]}>
           <a-image src="#a14"
-                   width="22"
-                   height="15"
+                   width="0.6"
+                   height="0.4"
                    id="a14"
-                   onClick={ this.handleClick }
+                   onClick={ this.props.a14 }
           />
         </Entity>
     );
-  }
-}
+  }}

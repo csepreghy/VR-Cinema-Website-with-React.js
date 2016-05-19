@@ -8,15 +8,16 @@
 #  
 #  ==========================================================================
 
-newmtl default_Mat
-illum 1
-
 newmtl teszt
 Kd 0.952941 0.396078 0.000000
 illum 1
 
 newmtl brown
 Kd 0.153061 0.086735 0.000000
+illum 1
+
+newmtl canvas2
+Kd 1.000000 1.000000 1.000000
 illum 1
 
 newmtl floor
@@ -31,3 +32,6 @@ newmtl Velvet
 Kd 1.000000 0.000000 0.000000
 illum 1
 map_Kd velvet texture.jpg
+
+newmtl default_Mat
+illum 1
