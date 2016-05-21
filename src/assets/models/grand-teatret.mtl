@@ -8,20 +8,28 @@
 #  
 #  ==========================================================================
 
-newmtl teszt
-Kd 0.952941 0.396078 0.000000
+newmtl plafon
+Kd 0.952941 0.945098 0.815686
+illum 1
+
+newmtl fal
+Kd 0.314471 0.115176 0.000000
 illum 1
 
 newmtl brown
 Kd 0.153061 0.086735 0.000000
 illum 1
 
-newmtl canvas2
-Kd 1.000000 1.000000 1.000000
+newmtl Door
+Kd 0.920000 0.920000 0.920000
 illum 1
 
-newmtl floor
+newmtl padlo
 Kd 1.000000 0.380000 0.386813
+illum 1
+
+newmtl canvas2
+Kd 1.000000 0.000000 0.000000
 illum 1
 
 newmtl poharak

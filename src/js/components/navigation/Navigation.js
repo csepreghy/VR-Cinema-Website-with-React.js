@@ -14,7 +14,7 @@ export default class Navigation extends React.Component {
         <Entity>
           <Back/>
           <BookSeat />
-          <ChangeSeat handleClick={ this.props.handleClick } />
+          <ChangeSeat handleChangeSeatClick={ this.props.handleChangeSeatClick } />
         </Entity>
     );
   }

@@ -14,8 +14,7 @@ export default props => (
         <img id="book-seat-text" src="assets/img/book-seat-text.png"></img>
         <img id="change-seat-text" src="assets/img/change-seat-text.png"></img>
 
-        <img id="a14" src="assets/img/seats/a14.png"></img>
-        <img id="b14" src="assets/img/seats/b14.png"></img>
+        <img id="seat" src="assets/img/seats/seat.png"></img>
 
       </a-assets>
 );

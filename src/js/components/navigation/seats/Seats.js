@@ -1,7 +1,6 @@
 import {Entity} from 'aframe-react';
 import React from 'react';
-import A14 from './individual_seats/A14';
-import B14 from './individual_seats/B14';
+import S1_1 from './individual_seats/S1_1';
 
 export default class Seats extends React.Component {
   constructor(props) {
@@ -11,8 +10,7 @@ export default class Seats extends React.Component {
   render() {
     return (
         <Entity>
-          <A14 a14={ this.props.a14 }/>
-          <B14 />
+          <S1_1 ref="s1_1" s1_1={ this.props.s1_1 }/>
         </Entity>
     );
   }

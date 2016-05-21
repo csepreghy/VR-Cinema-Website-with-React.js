@@ -16,12 +16,14 @@ class BoilerplateScene extends React.Component {
   constructor(props) {
     super(props);
 
-    this.a14 = this.a14.bind(this);
+    this.s1_1 = this.s1_1.bind(this);
   }
 
-  a14() {
+  s1_1() {
     console.log("A14 clicked");
     this.refs['camera'].moveTo_A14();
+    this.refs['camera'].refs['cursor'].revertBackToOriginal();
+    this.refs['seats'].refs['s1_1'].handleClick();
   }
 
   render () {
@@ -29,7 +31,7 @@ class BoilerplateScene extends React.Component {
     return (
       <Scene stats="" fog={{type: 'exponential', color: '#AAA', density: 0}}>
         <Assets />
-        <Camera ref="camera" />
+        <Camera ref="camera"/>
 
         <Sky/>
 
@@ -37,7 +39,7 @@ class BoilerplateScene extends React.Component {
         <Entity light={{type: 'directional', intensity: 0.2}} position={[-1, 7000, 0]}/>
         <Entity light={{type: 'directional', intensity: 0.1}} position={[1, 7000, 0]}/>
 
-        <Seats a14={ this.a14 }/>
+        <Seats ref="seats" s1_1={ this.s1_1 }/>
         <CinemaModel />
       </Scene>
     );

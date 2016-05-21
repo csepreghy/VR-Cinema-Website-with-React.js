@@ -42,7 +42,7 @@ export default class ChangeSeat extends React.Component {
           </Entity>
           <Entity onMouseEnter={ this.handleMouseEnter }
                   onMouseLeave={ this.handleMouseLeave }
-                  onClick={ this.props.handleClick } >
+                  onClick={ this.props.handleChangeSeatClick } >
             <a-image
                   src="#change-seat"
                   width="0.8"
