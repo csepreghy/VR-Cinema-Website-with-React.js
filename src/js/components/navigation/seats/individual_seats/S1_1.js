@@ -27,7 +27,7 @@ export default class S1_1 extends React.Component {
                    width="0.2"
                    height="0.1"
                    id="s1_1"
-                   opacity={ this.state.opacity }
+                   opacity={ this.props.Opacity }
                    onClick={ this.props.s1_1 }
           />
         </Entity>

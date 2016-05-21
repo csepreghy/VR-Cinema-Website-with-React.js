@@ -6,9 +6,7 @@ import Navigation from './navigation/Navigation';
 export default class Camera extends React.Component {
 
   //CV stands for Camera View
-
-  cameraZ = -70;
-
+  
   CV_change_seat = {x: 0, y:38, z:-125};
   CV_initial = {x:5, y:13, z:-70};
   CV_a14 = {x:6, y:13, z:-40};
@@ -26,7 +24,6 @@ export default class Camera extends React.Component {
     this.tweenUpdate = this.tweenUpdate.bind(this);
     this.moveToNewView = this.moveToNewView.bind(this);
     this.moveTo_A14 = this.moveTo_A14.bind(this);
-    this.handleChangeSeatClick = this.handleChangeSeatClick.bind(this);
   }
 
   moveToNewView(newView) {
@@ -44,13 +41,6 @@ export default class Camera extends React.Component {
     this.moveToNewView(this.CV_change_seat);
   }
 
-  handleChangeSeatClick() {
-    this.moveTo_CV_change_seat();
-    this.refs['cursor'].cursorAnimation();
-  }
-
-
-  
   moveTo_A14() {
     this.moveToNewView(this.CV_a14);
   }
@@ -58,7 +48,7 @@ export default class Camera extends React.Component {
   render() {
       return (
           <Entity id="cameraEntity" position={ [this.state.currentCameraPos.x, this.state.currentCameraPos.y, this.state.currentCameraPos.z] }>
-            <Navigation handleChangeSeatClick={ this.handleChangeSeatClick }/>
+            <Navigation handleChangeSeatClick={ this.props.handleChangeSeatClick }/>
             <Entity camera=""
                     look-controls=""
                     wasd-controls={{enabled: true}}>

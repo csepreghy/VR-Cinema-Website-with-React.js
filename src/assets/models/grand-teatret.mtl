@@ -27,9 +27,10 @@ illum 1
 newmtl padlo
 Kd 1.000000 0.380000 0.386813
 illum 1
+map_Kd floor_carpet_red.jpg
 
 newmtl canvas2
-Kd 1.000000 0.000000 0.000000
+Kd 1.000000 1.000000 1.000000
 illum 1
 
 newmtl poharak

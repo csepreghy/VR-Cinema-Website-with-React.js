@@ -16,5 +16,7 @@ export default props => (
 
         <img id="seat" src="assets/img/seats/seat.png"></img>
 
+        <video id="movie" autoPlay loop="true" src="assets/movie.mp4"></video>
+
       </a-assets>
 );
