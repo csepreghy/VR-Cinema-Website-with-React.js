@@ -8,18 +8,6 @@
 #  
 #  ==========================================================================
 
-newmtl plafon
-Kd 0.952941 0.945098 0.815686
-illum 1
-
-newmtl fal
-Kd 0.314471 0.115176 0.000000
-illum 1
-
-newmtl brown
-Kd 0.153061 0.086735 0.000000
-illum 1
-
 newmtl Door
 Kd 0.920000 0.920000 0.920000
 illum 1
@@ -28,6 +16,27 @@ newmtl padlo
 Kd 1.000000 0.380000 0.386813
 illum 1
 map_Kd floor_carpet_red.jpg
+
+newmtl brown
+Kd 0.153061 0.086735 0.000000
+illum 1
+
+newmtl plafon
+Kd 0.952941 0.945098 0.815686
+illum 1
+
+newmtl fal
+Kd 0.314471 0.115176 0.000000
+illum 1
+
+newmtl fal_kijevetel
+Kd 0.314471 0.042706 0.045294
+illum 1
+
+newmtl lights
+Ka 0.730000 0.730000 0.612627
+Kd 1.000000 1.000000 0.015686
+illum 1
 
 newmtl canvas2
 Kd 1.000000 1.000000 1.000000

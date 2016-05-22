@@ -2,9 +2,7 @@ import {Entity} from 'aframe-react';
 import React from 'react';
 
 export default class S1_1 extends React.Component {
-
-  opactiy = 0;
-
+  
   constructor(props) {
     super(props);
 

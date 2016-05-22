@@ -31,7 +31,7 @@ class BoilerplateScene extends React.Component {
 
   s1_1() {
     console.log("A14 clicked");
-    this.refs['camera'].moveTo_A14();
+    this.refs['camera'].moveTo_S1_1();
     this.refs['camera'].refs['cursor'].revertBackToOriginal();
     this.refs['seats'].fadeOut();
     this.refs['movie'].fadeIn();
@@ -39,7 +39,7 @@ class BoilerplateScene extends React.Component {
 
   render () {
     return (
-      <Scene fog={{type: 'exponential', color: '#333', density: 0.005}}>
+      <Scene >
         <Assets />
         <Camera handleChangeSeatClick={ this.handleChangeSeatClick } ref="camera"/>
 
