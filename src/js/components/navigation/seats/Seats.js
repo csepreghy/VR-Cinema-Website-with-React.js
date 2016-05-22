@@ -17,13 +17,16 @@ export default class Seats extends React.Component {
 
     this.fadeIn = this.fadeIn.bind(this);
     this.tweenUpdate = this.tweenUpdate.bind(this);
+    this.fadeOut = this.fadeOut.bind(this);
   }
+
+  //FadeIn Animation
 
   fadeIn() {
 
     setTimeout(() => {this.setState({visible: true})}, 4999);
 
-    let newOpacity = { x: 1 }
+    let newOpacity = { x: 1 };
     let tween = new TWEEN.Tween(this.opacity).to(newOpacity, 500);
     tween.delay(5000);
     tween.start();
@@ -31,8 +34,19 @@ export default class Seats extends React.Component {
     tween.onUpdate(this.tweenUpdate);
   }
 
+  //FadeOut Animation
+
+  fadeOut() {
+    setTimeout(() => {this.setState({visible: false})}, 501);
+
+    let newOpacity = { x: 0 }
+    let tween = new TWEEN.Tween(this.opacity).to(newOpacity, 500);
+    tween.start();
+
+    tween.onUpdate(this.tweenUpdate);
+  }
+
   tweenUpdate() {
-    console.log(this.state.opacity.x)
     this.setState({ opacity: this.opacity });
   }
 

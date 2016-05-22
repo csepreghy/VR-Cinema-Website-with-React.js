@@ -11,14 +11,8 @@ export default class S1_1 extends React.Component {
     this.state = {
       opacity: 1
     };
-
-    this.handleClick = this.handleClick.bind(this);
   }
-
-  handleClick() {
-
-  }
-
+  
   render() {
     return (
         <Entity position={[0, 40.5, -129]}

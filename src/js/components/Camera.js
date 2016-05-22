@@ -28,7 +28,8 @@ export default class Camera extends React.Component {
 
   moveToNewView(newView) {
     let tween = new TWEEN.Tween(this.currentCameraPos).to(newView, 4000);
-    tween.easing(TWEEN.Easing.Cubic.InOut)
+    tween.easing(TWEEN.Easing.Cubic.InOut);
+    tween.delay(500);
     tween.start();
     tween.onUpdate(this.tweenUpdate);
   }
