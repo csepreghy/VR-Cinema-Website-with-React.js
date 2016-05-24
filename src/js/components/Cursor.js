@@ -74,7 +74,6 @@ export default class Cursor extends React.Component {
   }
 
   tweenPosUpdate() {
-    console.log(this.state.position.z);
     this.setState({ position: this.position });
   }
 

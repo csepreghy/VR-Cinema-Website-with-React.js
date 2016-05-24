@@ -1,7 +1,7 @@
 import {Entity} from 'aframe-react';
 import React from 'react';
 
-export default class S1_1 extends React.Component {
+export default class Seat extends React.Component {
   
   constructor(props) {
     super(props);
@@ -12,15 +12,15 @@ export default class S1_1 extends React.Component {
   }
   
   render() {
+    
     return (
-        <Entity position={[0, 40.5, -129]}
-                rotation={[0, 0, 0]} >
+        <Entity position={this.props.seatPos} >
           <a-image src="#seat"
                    width="0.2"
                    height="0.1"
-                   id="s1_1"
+                   id={this.props.componentId}
                    opacity={ this.props.Opacity }
-                   onClick={ this.props.s1_1 }
+                   onClick={ this.props.seatAnimation }
           />
         </Entity>
     );

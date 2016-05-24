@@ -24,9 +24,7 @@ export default class Movie extends React.Component {
       let movie = document.querySelector('#movie');
       movie.volume = 0;
     }, 4500);
-
-
-    console.log("movie fadeOut");
+    
     let newOpacity = { x: 0 }
     let tween = new TWEEN.Tween(this.opacity).to(newOpacity, 500);
     tween.delay(4000);
@@ -37,8 +35,7 @@ export default class Movie extends React.Component {
   fadeIn() {
     let movie = document.querySelector('#movie');
     movie.volume = 1;
-
-    console.log("movie fadeIn");
+    
     let newOpacity = { x: 1 }
     let tween = new TWEEN.Tween(this.opacity).to(newOpacity, 500);
     tween.delay(500);

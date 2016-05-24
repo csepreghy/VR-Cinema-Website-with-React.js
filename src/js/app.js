@@ -5,7 +5,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import Camera from './components/Camera';
-import Sky from './components/Sky';
 import Assets from './components/Assets';
 import CinemaModel from './components/Cinema-Model';
 import Movie from './components/Movie';
@@ -17,7 +16,7 @@ class BoilerplateScene extends React.Component {
   constructor(props) {
     super(props);
 
-    this.s1_1 = this.s1_1.bind(this);
+    this.seatAnimation = this.seatAnimation.bind(this);
     this.handleChangeSeatClick = this.handleChangeSeatClick.bind(this)
   }
 
@@ -29,9 +28,9 @@ class BoilerplateScene extends React.Component {
   }
 
 
-  s1_1() {
-    console.log("A14 clicked");
-    this.refs['camera'].moveTo_S1_1();
+  seatAnimation(e) {
+    console.log(e.target.id);
+    this.refs['camera'].idToCoordinates(e.target.id);
     this.refs['camera'].refs['cursor'].revertBackToOriginal();
     this.refs['seats'].fadeOut();
     this.refs['movie'].fadeIn();
@@ -46,7 +45,7 @@ class BoilerplateScene extends React.Component {
         <Entity light={{type: 'directional', intensity: 0.3}} position={[1, 50, -50]}/>
         <Entity light={{type: 'directional', intensity: 0.2}} position={[1, 50, 0]}/>
 
-        <Seats ref="seats" s1_1={ this.s1_1 }/>
+        <Seats ref="seats" seatAnimation={ this.seatAnimation }/>
         <CinemaModel />
         <Movie ref="movie"/>
       </Scene>
