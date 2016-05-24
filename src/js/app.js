@@ -41,7 +41,7 @@ class BoilerplateScene extends React.Component {
       <Scene >
         <Assets />
         <Camera handleChangeSeatClick={ this.handleChangeSeatClick } ref="camera"/>
-
+        
         <Entity light={{type: 'directional', intensity: 0.3}} position={[1, 50, -50]}/>
         <Entity light={{type: 'directional', intensity: 0.2}} position={[1, 50, 0]}/>
 
