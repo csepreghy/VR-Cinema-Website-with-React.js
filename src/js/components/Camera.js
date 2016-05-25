@@ -109,7 +109,7 @@ export default class Camera extends React.Component {
   seatCoordinates = {
 
     CV_change_seat: {x: 0, y:38, z:-125},
-    CV_intro: {x: 0, y:15, z:64},
+    CV_intro: {x: 0, y:10, z:64},
     CV_intro_2: {x: 0, y:25, z:0},
 
     S1_1:  {x: this.SO_1, y: this.head_height_0, z: this.row_1},
@@ -458,7 +458,7 @@ export default class Camera extends React.Component {
   }
 
   introAnimation() {
-    this.moveToNewView(this.seatCoordinates.CV_intro_2, 6000, 2000);
+    this.moveToNewView(this.seatCoordinates.CV_intro_2, 6000, 3000);
     setTimeout(() => {this.moveToNewView(this.seatCoordinates.S7_1, 5000, 0)}, 8000);
   }
 

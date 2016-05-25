@@ -8,6 +8,7 @@ import Camera from './components/Camera';
 import Assets from './components/Assets';
 import CinemaModel from './components/Cinema-Model';
 import Movie from './components/Movie';
+import Lights from './components/Lights.js';
 import Seats from './components//navigation/seats/Seats';
 
 var TWEEN = require('tween.js');
@@ -47,8 +48,7 @@ class BoilerplateScene extends React.Component {
         <Assets introAnimation={this.introAnimation}/>
         <Camera handleChangeSeatClick={ this.handleChangeSeatClick } ref="camera"/>
         
-        <Entity light={{type: 'directional', intensity: 0.3}} position={[1, 50, -50]}/>
-        <Entity light={{type: 'directional', intensity: 0.2}} position={[1, 50, 0]}/>
+        <Lights />
 
         <Seats ref="seats" seatAnimation={ this.seatAnimation }/>
         <CinemaModel />

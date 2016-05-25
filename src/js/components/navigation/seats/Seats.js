@@ -1,6 +1,6 @@
 import {Entity} from 'aframe-react';
 import React from 'react';
-import Seat from './individual_seats/S1_1';
+import Seat from './Seat';
 
 export default class Seats extends React.Component {
 

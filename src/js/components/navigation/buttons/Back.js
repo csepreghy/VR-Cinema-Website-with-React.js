@@ -7,6 +7,11 @@ export default class Back extends React.Component {
 
     this.handleMouseEnter = this.handleMouseEnter.bind(this);
     this.handleMouseLeave = this.handleMouseLeave.bind(this);
+    this.redirect = this.redirect.bind(this);
+  }
+
+  redirect() {
+    window.location = "http://www.grandteatret.dk/";
   }
 
   handleMouseEnter() {
@@ -43,7 +48,7 @@ export default class Back extends React.Component {
           </Entity>
           <Entity onMouseEnter={ this.handleMouseEnter }
                   onMouseLeave={ this.handleMouseLeave }
-                  onClick={ this.props.handleClick }>
+                  onClick={ this.redirect }>
             <a-image
                     src="#back"
                     width="0.8"

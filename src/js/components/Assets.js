@@ -9,7 +9,7 @@ export default class Assets extends React.Component {
 
   render() {
     return (
-        <a-assets loaded={this.props.introAnimation}>
+        <a-assets>
 
           <a-asset-item id="cinema-obj" src="assets/models/Grand-Teatret.obj"></a-asset-item>
           <a-asset-item id="cinema-mtl" src="assets/models/Grand-Teatret.mtl"></a-asset-item>
