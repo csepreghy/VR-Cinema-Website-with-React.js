@@ -1,6 +1,6 @@
 import 'aframe';
 import 'babel-polyfill';
-import {Animation, Entity, Scene} from 'aframe-react';
+import {Entity, Scene} from 'aframe-react';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -17,7 +17,8 @@ class BoilerplateScene extends React.Component {
     super(props);
 
     this.seatAnimation = this.seatAnimation.bind(this);
-    this.handleChangeSeatClick = this.handleChangeSeatClick.bind(this)
+    this.handleChangeSeatClick = this.handleChangeSeatClick.bind(this);
+    this.introAnimation = this.introAnimation.bind(this);
   }
 
   handleChangeSeatClick() {
@@ -29,17 +30,21 @@ class BoilerplateScene extends React.Component {
 
 
   seatAnimation(e) {
-    console.log(e.target.id);
     this.refs['camera'].idToCoordinates(e.target.id);
     this.refs['camera'].refs['cursor'].revertBackToOriginal();
     this.refs['seats'].fadeOut();
     this.refs['movie'].fadeIn();
   }
 
+  introAnimation() {
+    console.log("intro anim app level")
+    this.refs['camera'].introAnimation();
+  }
+
   render () {
     return (
-      <Scene >
-        <Assets />
+      <Scene stats="">
+        <Assets introAnimation={this.introAnimation}/>
         <Camera handleChangeSeatClick={ this.handleChangeSeatClick } ref="camera"/>
         
         <Entity light={{type: 'directional', intensity: 0.3}} position={[1, 50, -50]}/>

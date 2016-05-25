@@ -25,7 +25,7 @@ export default class Movie extends React.Component {
       movie.volume = 0;
     }, 4500);
     
-    let newOpacity = { x: 0 }
+    let newOpacity = { x: 0 };
     let tween = new TWEEN.Tween(this.opacity).to(newOpacity, 500);
     tween.delay(4000);
     tween.start();

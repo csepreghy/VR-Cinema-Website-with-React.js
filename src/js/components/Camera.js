@@ -109,6 +109,9 @@ export default class Camera extends React.Component {
   seatCoordinates = {
 
     CV_change_seat: {x: 0, y:38, z:-125},
+    CV_intro: {x: 0, y:15, z:64},
+    CV_intro_2: {x: 0, y:25, z:0},
+
     S1_1:  {x: this.SO_1, y: this.head_height_0, z: this.row_1},
     S1_2:  {x: this.SO_2, y: this.head_height_0, z: this.row_1},
     S1_3:  {x: this.SO_3, y: this.head_height_0, z: this.row_1},
@@ -420,8 +423,8 @@ export default class Camera extends React.Component {
     S17_20:  {x: this.SB_20, y: this.head_height_9, z: this.row_17}
 
 };
-  
-  currentCameraPos = this.seatCoordinates.S17_5;
+
+  currentCameraPos = this.seatCoordinates.CV_intro;
 
   constructor(props) {
     super(props);
@@ -433,15 +436,19 @@ export default class Camera extends React.Component {
     this.moveTo_CV_change_seat = this.moveTo_CV_change_seat.bind(this);
     this.tweenUpdate = this.tweenUpdate.bind(this);
     this.moveToNewView = this.moveToNewView.bind(this);
-    this.moveTo_S1_1 = this.moveTo_S1_1.bind(this);
     this.idToCoordinates = this.idToCoordinates.bind(this);
+    this.introAnimation = this.introAnimation.bind(this);
   }
 
-  moveToNewView(newView) {
+  componentDidMount() {
+    this.introAnimation();
+  }
+
+  moveToNewView(newView, time, delay) {
     console.log('moveToNewView camera level & ');
-    let tween = new TWEEN.Tween(this.currentCameraPos).to(newView, 4000);
+    let tween = new TWEEN.Tween(this.currentCameraPos).to(newView, time);
     tween.easing(TWEEN.Easing.Cubic.InOut);
-    tween.delay(500);
+    tween.delay(delay);
     tween.start();
     tween.onUpdate(this.tweenUpdate);
   }
@@ -450,17 +457,17 @@ export default class Camera extends React.Component {
     this.setState({currentCameraPos: this.currentCameraPos});
   }
 
-  moveTo_CV_change_seat() {
-    this.moveToNewView(this.seatCoordinates.CV_change_seat);
+  introAnimation() {
+    this.moveToNewView(this.seatCoordinates.CV_intro_2, 6000, 2000);
+    setTimeout(() => {this.moveToNewView(this.seatCoordinates.S7_1, 5000, 0)}, 8000);
   }
 
-  moveTo_S1_1(e) {
-    console.log('moveTo_S1_1 camera level & ' + e);
-    this.moveToNewView(this.S5_1);
+  moveTo_CV_change_seat() {
+    this.moveToNewView(this.seatCoordinates.CV_change_seat, 4000, 500);
   }
 
   idToCoordinates(id) {
-    this.moveToNewView(this.seatCoordinates[id]);
+    this.moveToNewView(this.seatCoordinates[id], 4000, 0);
   }
 
   render() {
