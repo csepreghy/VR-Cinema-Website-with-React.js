@@ -3,6 +3,8 @@ import 'babel-polyfill';
 import {Entity, Scene} from 'aframe-react';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import 'aframe-fps-look-component';
+import 'aframe-extras';
 
 import Camera from './components/Camera';
 import Assets from './components/Assets';
@@ -10,8 +12,6 @@ import CinemaModel from './components/Cinema-Model';
 import Movie from './components/Movie';
 import Lights from './components/Lights.js';
 import Seats from './components//navigation/seats/Seats';
-
-var TWEEN = require('tween.js');
 
 class BoilerplateScene extends React.Component {
   constructor(props) {

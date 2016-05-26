@@ -4,6 +4,8 @@
   "description": "Boilerplate for using A-Frame (VR) with React.",
   "dependencies": {
     "aframe": "^0.2.0",
+    "aframe-core": "^0.1.6",
+    "aframe-fps-look-component": "^0.1.1",
     "aframe-react": "^1.2.0",
     "babel-polyfill": "^6.3.14",
     "react": "^0.14.3",
@@ -47,6 +49,7 @@
     "css-loader": "^0.23.0",
     "eslint-plugin-react": "^5.0.1",
     "ghpages": "0.0.3",
+    "gulp-uglify": "^1.5.3",
     "json-loader": "^0.5.4",
     "style-loader": "^0.13.0",
     "webpack": "^1.12.9",

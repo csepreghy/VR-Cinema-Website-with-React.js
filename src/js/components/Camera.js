@@ -475,7 +475,7 @@ export default class Camera extends React.Component {
           <Entity id="cameraEntity" position={ [this.state.currentCameraPos.x, this.state.currentCameraPos.y, this.state.currentCameraPos.z] }>
             <Navigation handleChangeSeatClick={ this.props.handleChangeSeatClick }/>
             <Entity camera=""
-                    look-controls=""
+                    universal-controls
                     wasd-controls={{enabled: true}}>
               <Cursor ref="cursor"/>
             </Entity>
