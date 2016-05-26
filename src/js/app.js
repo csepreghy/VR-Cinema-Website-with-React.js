@@ -47,7 +47,7 @@ class BoilerplateScene extends React.Component {
       <Scene stats="">
         <Assets introAnimation={this.introAnimation}/>
         <Camera handleChangeSeatClick={ this.handleChangeSeatClick } ref="camera"/>
-        
+
         <Lights />
 
         <Seats ref="seats" seatAnimation={ this.seatAnimation }/>

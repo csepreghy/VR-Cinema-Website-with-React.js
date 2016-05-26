@@ -1,5 +1,6 @@
 import {Entity} from 'aframe-react';
 import React from 'react';
+import * as Extras from 'aframe-extras';
 import Cursor from './Cursor';
 import Navigation from './navigation/Navigation';
 
