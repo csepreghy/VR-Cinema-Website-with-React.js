@@ -427,7 +427,9 @@ export default class Camera extends React.Component {
   currentCameraPos = this.seatCoordinates.CV_intro;
 
   opacity = { x: 0 };
-  textOpacity = { x: 0};
+  textOpacity = { x: 0 };
+  navTextOpacity = { x: 0 };
+  canvasTextOpacity = { x: 0 };
 
   constructor(props) {
     super(props);
@@ -437,7 +439,11 @@ export default class Camera extends React.Component {
             bookedThisSeatText: "",
             opacity: this.opacity,
             textOpacity: this.textOpacity,
-            textVisible: false
+            textVisible: false,
+            navTextVisible: false,
+            navTextOpacity: this.navTextOpacity,
+            canvasTextVisible: false,
+            canvasTextOpacity: this.canvasTextOpacity
     };
 
     this.moveTo_CV_change_seat = this.moveTo_CV_change_seat.bind(this);
@@ -450,6 +456,12 @@ export default class Camera extends React.Component {
     this.tweenOpacityUpdate = this.tweenOpacityUpdate.bind(this);
     this.tweenTextOpacityUpdate = this.tweenTextOpacityUpdate.bind(this);
     this.fadeBookedSeatTextOut = this.fadeBookedSeatTextOut.bind(this);
+    this.fadeNavTextIn = this.fadeNavTextIn.bind(this);
+    this.fadeNavTextOut = this.fadeNavTextOut.bind(this);
+    this.tweenNavTextOpacityUpdate = this.tweenNavTextOpacityUpdate.bind(this);
+    this.fadeCanvasTextIn = this.fadeCanvasTextIn.bind(this);
+    this.fadeCanvasTextOut = this.fadeCanvasTextOut.bind(this);
+    this.tweenCanvasTextUpdate = this.tweenCanvasTextUpdate.bind(this);
   }
 
   componentDidMount() {
@@ -467,11 +479,39 @@ export default class Camera extends React.Component {
     this.fadeBookedSeatTextIn();
   }
 
-  fadeBookedSeatTextIn() {
+  fadeCanvasTextIn() {
+    setTimeout(() => {this.setState({ canvasTextVisible: true })}, 4010);
 
+    let newOpacity = { x: 1 };
+
+    let tween = new TWEEN.Tween(this.canvasTextOpacity).to(newOpacity, 1000);
+    tween.easing(TWEEN.Easing.Cubic.InOut);
+    tween.delay(5020);
+    tween.start();
+    tween.onUpdate(this.tweenCanvasTextUpdate);
+
+    setTimeout(() => {this.fadeCanvasTextOut()}, 12000);
+  }
+
+  fadeCanvasTextOut() {
+    let newOpacity = { x: 0 };
+
+    let tween = new TWEEN.Tween(this.canvasTextOpacity).to(newOpacity, 1000);
+    tween.easing(TWEEN.Easing.Cubic.InOut);
+    tween.start();
+    tween.onUpdate(this.tweenCanvasTextUpdate);
+
+    setTimeout(() => {this.setState({canvasTextVisible: false})}, 1001);
+  }
+
+  tweenCanvasTextUpdate() {
+    this.setState({ canvasTextOpacity: this.canvasTextOpacity });
+  }
+
+  fadeBookedSeatTextIn() {
     this.setState({ textVisible: true });
 
-    let newOpacity = { x: 1 }
+    let newOpacity = { x: 1 };
 
     let tween = new TWEEN.Tween(this.textOpacity).to(newOpacity, 1000);
     tween.easing(TWEEN.Easing.Cubic.InOut);
@@ -482,7 +522,7 @@ export default class Camera extends React.Component {
   }
 
   fadeBookedSeatTextOut() {
-    let newOpacity = { x: 0 }
+    let newOpacity = { x: 0 };
 
     let tween = new TWEEN.Tween(this.textOpacity).to(newOpacity, 1000);
     tween.easing(TWEEN.Easing.Cubic.InOut);
@@ -494,6 +534,35 @@ export default class Camera extends React.Component {
 
   tweenTextOpacityUpdate() {
     this.setState({ textOpacity: this.textOpacity });
+  }
+
+  fadeNavTextIn() {
+    this.setState({ navTextVisible: true });
+
+    let newOpacity = { x: 1 };
+
+    let tween = new TWEEN.Tween(this.navTextOpacity).to(newOpacity, 1000);
+    tween.easing(TWEEN.Easing.Cubic.InOut);
+    tween.delay(12000);
+    tween.start();
+    tween.onUpdate(this.tweenNavTextOpacityUpdate);
+
+    setTimeout(() => {this.fadeNavTextOut()}, 18000);
+  }
+
+  fadeNavTextOut() {
+    let newOpacity = { x: 0 };
+
+    let tween = new TWEEN.Tween(this.navTextOpacity).to(newOpacity, 1000);
+    tween.easing(TWEEN.Easing.Cubic.InOut);
+    tween.start();
+    tween.onUpdate(this.tweenNavTextOpacityUpdate);
+
+    setTimeout(() => {this.setState({navTextVisible: false})}, 1001);
+  }
+
+  tweenNavTextOpacityUpdate() {
+    this.setState({ navTextOpacity: this.navTextOpacity });
   }
 
   tweenOpacityUpdate() {
@@ -517,6 +586,7 @@ export default class Camera extends React.Component {
     movie.play();
     this.moveToNewView(this.seatCoordinates.CV_intro_2, 6000, 3000);
     setTimeout(() => {this.moveToNewView(this.seatCoordinates.S7_1, 5000, 0)}, 8000);
+    this.fadeNavTextIn();
   }
 
   moveTo_CV_change_seat() {
@@ -536,7 +606,21 @@ export default class Camera extends React.Component {
                     universal-controls
                     touch-controls="enabled: false"
                     keyboard-controls="enabled: false">
-              <Entity visible={this.state.textVisible} material={{color: 'white', transparent: true, shader: 'flat', opacity: this.state.textOpacity.x}}  position={[-9, 2, -8]} size={0.01} text={{text: this.state.bookedThisSeatText}} />
+              <Entity visible={this.state.textVisible}
+                      material={{color: 'white', transparent: true, shader: 'flat', opacity: this.state.textOpacity.x}}
+                      position={[-9, 2, -8]}
+                      size={0.01}
+                      text={{text: this.state.bookedThisSeatText}} />
+              <Entity visible={this.state.navTextVisible}
+                      material={{color: 'white', transparent: true, shader: 'flat', opacity: this.state.navTextOpacity.x}}
+                      position={[-5, -2, -8]}
+                      size={0.01}
+                      text={{text: "Look down to see the navigation."}} />
+              <Entity visible={this.state.canvasTextVisible}
+                      material={{color: 'white', transparent: true, shader: 'flat', opacity: this.state.canvasTextOpacity.x}}
+                      position={[-10, -5, -10]}
+                      size={0.001}
+                      text={{text: "You can sit in another seat by clicking a red button on the canvas."}} />
               <Cursor ref="cursor"/>
             </Entity>
           </Entity>

@@ -32,6 +32,7 @@ class BoilerplateScene extends React.Component {
   
   handleChangeSeatClick() {
     this.refs['camera'].moveTo_CV_change_seat();
+    this.refs['camera'].fadeCanvasTextIn();
     this.refs['camera'].refs['cursor'].cursorAnimation();
     this.refs['seats'].fadeIn();
     this.refs['movie'].fadeOut();
