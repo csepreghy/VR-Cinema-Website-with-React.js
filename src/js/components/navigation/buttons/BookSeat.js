@@ -47,7 +47,8 @@ export default class BookSeat extends React.Component {
                      id="book-seat-text-nav" />
           </Entity>
           <Entity onMouseEnter={ this.fadeIn }
-                  onMouseLeave={ this.fadeOut } >
+                  onMouseLeave={ this.fadeOut }
+                  onClick={ this.props.handleBookSeatClick }>
             <a-image
                 src="#book-seat"
                 width="0.8"

@@ -426,11 +426,18 @@ export default class Camera extends React.Component {
 
   currentCameraPos = this.seatCoordinates.CV_intro;
 
+  opacity = { x: 0 };
+  textOpacity = { x: 0};
+
   constructor(props) {
     super(props);
 
     this.state = {
-            currentCameraPos: this.currentCameraPos
+            currentCameraPos: this.currentCameraPos,
+            bookedThisSeatText: "",
+            opacity: this.opacity,
+            textOpacity: this.textOpacity,
+            textVisible: false
     };
 
     this.moveTo_CV_change_seat = this.moveTo_CV_change_seat.bind(this);
@@ -438,14 +445,62 @@ export default class Camera extends React.Component {
     this.moveToNewView = this.moveToNewView.bind(this);
     this.idToCoordinates = this.idToCoordinates.bind(this);
     this.introAnimation = this.introAnimation.bind(this);
+    this.idToBookedSeat = this.idToBookedSeat.bind(this);
+    this.fadeBookedSeatTextIn = this.fadeBookedSeatTextIn.bind(this);
+    this.tweenOpacityUpdate = this.tweenOpacityUpdate.bind(this);
+    this.tweenTextOpacityUpdate = this.tweenTextOpacityUpdate.bind(this);
+    this.fadeBookedSeatTextOut = this.fadeBookedSeatTextOut.bind(this);
   }
 
   componentDidMount() {
     this.introAnimation();
   }
 
+  idToBookedSeat() {
+    let str = this.props.yourCurrentSeat;
+
+    let rowNum = str.substr(1, 1);
+    let seatNum = str.substr(str.indexOf("_") + 1);
+
+    this.setState({bookedThisSeatText: "You booked seat number " + seatNum + " " + "from row " + rowNum + ". Enjoy your movie!"});
+
+    this.fadeBookedSeatTextIn();
+  }
+
+  fadeBookedSeatTextIn() {
+
+    this.setState({ textVisible: true });
+
+    let newOpacity = { x: 1 }
+
+    let tween = new TWEEN.Tween(this.textOpacity).to(newOpacity, 1000);
+    tween.easing(TWEEN.Easing.Cubic.InOut);
+    tween.start();
+    tween.onUpdate(this.tweenTextOpacityUpdate);
+
+    setTimeout(() => {this.fadeBookedSeatTextOut()}, 6000);
+  }
+
+  fadeBookedSeatTextOut() {
+    let newOpacity = { x: 0 }
+
+    let tween = new TWEEN.Tween(this.textOpacity).to(newOpacity, 1000);
+    tween.easing(TWEEN.Easing.Cubic.InOut);
+    tween.start();
+    tween.onUpdate(this.tweenTextOpacityUpdate);
+
+    setTimeout(() => {this.setState({textVisible: false})}, 1001);
+  }
+
+  tweenTextOpacityUpdate() {
+    this.setState({ textOpacity: this.textOpacity });
+  }
+
+  tweenOpacityUpdate() {
+    this.setState({ opacity: this.opacity });
+  }
+
   moveToNewView(newView, time, delay) {
-    console.log('moveToNewView camera level & ');
     let tween = new TWEEN.Tween(this.currentCameraPos).to(newView, time);
     tween.easing(TWEEN.Easing.Cubic.InOut);
     tween.delay(delay);
@@ -475,10 +530,11 @@ export default class Camera extends React.Component {
   render() {
       return (
           <Entity id="cameraEntity" position={ [this.state.currentCameraPos.x, this.state.currentCameraPos.y, this.state.currentCameraPos.z] }>
-            <Navigation handleChangeSeatClick={ this.props.handleChangeSeatClick }/>
+            <Navigation handleChangeSeatClick={ this.props.handleChangeSeatClick }
+                        handleBookSeatClick={ this.idToBookedSeat }/>
             <Entity camera=""
-                    universal-controls
-                    wasd-controls={{enabled: true}}>
+                    universal-controls >
+              <Entity visible={this.state.textVisible} material={{color: 'white', transparent: true, shader: 'flat', opacity: this.state.textOpacity.x}}  position={[-9, 2, -8]} size={0.01} text={{text: this.state.bookedThisSeatText}} />
               <Cursor ref="cursor"/>
             </Entity>
           </Entity>

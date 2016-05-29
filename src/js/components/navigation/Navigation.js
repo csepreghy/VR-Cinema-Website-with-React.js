@@ -48,7 +48,8 @@ export default class Navigation extends React.Component {
                 fadeOut={ this.fadeOut }/>
           <BookSeat Opacity={ this.state.opacity.bookseat }
                     fadeIn={ this.fadeIn }
-                    fadeOut={ this.fadeOut }/>
+                    fadeOut={ this.fadeOut }
+                    handleBookSeatClick={ this.props.handleBookSeatClick }/>
           <ChangeSeat
               handleChangeSeatClick={ this.props.handleChangeSeatClick }
               Opacity={ this.state.opacity.x }

@@ -5,6 +5,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import 'aframe-fps-look-component';
 import 'aframe-extras';
+import 'aframe-text-component';
 
 import Camera from './components/Camera';
 import Assets from './components/Assets';
@@ -22,6 +23,8 @@ class BoilerplateScene extends React.Component {
   constructor(props) {
     super(props);
 
+    this.state = { yourCurrentSeat: 'S7_1'};
+
     this.seatAnimation = this.seatAnimation.bind(this);
     this.handleChangeSeatClick = this.handleChangeSeatClick.bind(this);
     this.introAnimation = this.introAnimation.bind(this);
@@ -36,6 +39,9 @@ class BoilerplateScene extends React.Component {
 
 
   seatAnimation(e) {
+
+    this.setState({ yourCurrentSeat: e.target.id });
+
     this.refs['camera'].idToCoordinates(e.target.id);
     this.refs['camera'].refs['cursor'].revertBackToOriginal();
     this.refs['seats'].fadeOut();
@@ -51,7 +57,9 @@ class BoilerplateScene extends React.Component {
     return (
       <Scene stats="">
         <Assets introAnimation={this.introAnimation}/>
-        <Camera handleChangeSeatClick={ this.handleChangeSeatClick } ref="camera"/>
+        <Camera handleChangeSeatClick={ this.handleChangeSeatClick }
+                ref="camera"
+                yourCurrentSeat={ this.state.yourCurrentSeat } />
 
         <Lights />
 
