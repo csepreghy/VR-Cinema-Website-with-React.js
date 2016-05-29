@@ -534,7 +534,8 @@ export default class Camera extends React.Component {
                         handleBookSeatClick={ this.idToBookedSeat }/>
             <Entity camera=""
                     universal-controls
-                    touch-controls="enabled: false">
+                    touch-controls="enabled: false"
+                    keyboard-controls="enabled: false">
               <Entity visible={this.state.textVisible} material={{color: 'white', transparent: true, shader: 'flat', opacity: this.state.textOpacity.x}}  position={[-9, 2, -8]} size={0.01} text={{text: this.state.bookedThisSeatText}} />
               <Cursor ref="cursor"/>
             </Entity>
