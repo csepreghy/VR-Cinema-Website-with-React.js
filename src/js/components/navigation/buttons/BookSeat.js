@@ -2,19 +2,37 @@ import {Entity, Animation} from 'aframe-react';
 import React from 'react';
 
 export default class BookSeat extends React.Component {
+
+  opacity = { x: 0 };
+
   constructor(props) {
     super(props);
 
-    this.handleMouseEnter = this.handleMouseEnter.bind(this);
-    this.handleMouseLeave = this.handleMouseLeave.bind(this);
+    this.state = { opacity: { x: 0}};
+
+    this.fadeIn = this.fadeIn.bind(this);
+    this.fadeOut = this.fadeOut.bind(this);
+    this.tweenUpdate = this.tweenUpdate.bind(this);
   }
 
-  handleMouseEnter() {
-    document.querySelector('#book-seat-text-nav').emit('fadeIn');
+  fadeIn() {
+    let newOpacity = { x: 1 };
+    let tween = new TWEEN.Tween(this.opacity).to(newOpacity, 300);
+    tween.start();
+
+    tween.onUpdate(this.tweenUpdate);
   }
 
-  handleMouseLeave() {
-    document.querySelector('#book-seat-text-nav').emit('fadeOut');
+  fadeOut() {
+    let newOpacity = { x: 0 };
+    let tween = new TWEEN.Tween(this.opacity).to(newOpacity, 300);
+    tween.start();
+
+    tween.onUpdate(this.tweenUpdate);
+  }
+
+  tweenUpdate() {
+    this.setState({ opacity: this.opacity });
   }
 
   render() {
@@ -25,22 +43,11 @@ export default class BookSeat extends React.Component {
             <a-image src="#book-seat-text"
                      width="1.2"
                      height="0.12"
-                     opacity="0"
-                     id="book-seat-text-nav" >
-              <Animation attribute="opacity"
-                         from="0"
-                         to="1"
-                         dur="350"
-                         begin="fadeIn" />
-              <Animation attribute="opacity"
-                         from="1"
-                         to="0"
-                         dur="200"
-                         begin="fadeOut" />
-            </a-image>
+                     opacity={ this.opacity.x }
+                     id="book-seat-text-nav" />
           </Entity>
-          <Entity onMouseEnter={ this.handleMouseEnter }
-                  onMouseLeave={ this.handleMouseLeave } >
+          <Entity onMouseEnter={ this.fadeIn }
+                  onMouseLeave={ this.fadeOut } >
             <a-image
                 src="#book-seat"
                 width="0.8"

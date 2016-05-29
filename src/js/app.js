@@ -10,8 +10,13 @@ import Camera from './components/Camera';
 import Assets from './components/Assets';
 import CinemaModel from './components/Cinema-Model';
 import Movie from './components/Movie';
-import Lights from './components/Lights.js';
+import Lights from './components/Lights';
 import Seats from './components//navigation/seats/Seats';
+
+var extras = require('aframe-extras');
+AFRAME.registerComponent('velocity', extras.math.velocity); // Register a single component.
+extras.physics.registerAll();                               // Register a particular package, and its dependencies.
+extras.registerAll();
 
 class BoilerplateScene extends React.Component {
   constructor(props) {
@@ -21,7 +26,7 @@ class BoilerplateScene extends React.Component {
     this.handleChangeSeatClick = this.handleChangeSeatClick.bind(this);
     this.introAnimation = this.introAnimation.bind(this);
   }
-
+  
   handleChangeSeatClick() {
     this.refs['camera'].moveTo_CV_change_seat();
     this.refs['camera'].refs['cursor'].cursorAnimation();

@@ -2,19 +2,37 @@ import {Entity, Animation} from 'aframe-react';
 import React from 'react';
 
 export default class ChangeSeat extends React.Component {
+
+  opacity = { x: 0};
+
   constructor(props) {
     super(props);
 
-    this.handleMouseEnter = this.handleMouseEnter.bind(this);
-    this.handleMouseLeave = this.handleMouseLeave.bind(this);
+    this.state = {opacity: { x: 0 }};
+    
+    this.fadeIn = this.fadeIn.bind(this);
+    this.fadeOut = this.fadeOut.bind(this);
+    this.tweenUpdate = this.tweenUpdate.bind(this);
+  }
+  
+  fadeIn() {
+    let newOpacity = { x: 1 };
+    let tween = new TWEEN.Tween(this.opacity).to(newOpacity, 300);
+    tween.start();
+
+    tween.onUpdate(this.tweenUpdate);
   }
 
-  handleMouseEnter() {
-    document.querySelector('#change-seat-text-nav').emit('fadeIn');
+  fadeOut() {
+    let newOpacity = { x: 0 };
+    let tween = new TWEEN.Tween(this.opacity).to(newOpacity, 300);
+    tween.start();
+
+    tween.onUpdate(this.tweenUpdate);
   }
 
-  handleMouseLeave() {
-    document.querySelector('#change-seat-text-nav').emit('fadeOut');
+  tweenUpdate() {
+    this.setState({ opacity: this.opacity });
   }
 
 
@@ -24,24 +42,13 @@ export default class ChangeSeat extends React.Component {
                 rotation={[-40, -45, 0]} >
           <Entity position={[0, 0.8, 0]} >
             <a-image src="#change-seat-text"
-                       width="1"
-                       height="0.14"
-                       opacity="0"
-                       id="change-seat-text-nav" >
-              <Animation attribute="opacity"
-                         from="0"
-                         to="1"
-                         dur="350"
-                         begin="fadeIn" />
-              <Animation attribute="opacity"
-                         from="1"
-                         to="0"
-                         dur="200"
-                         begin="fadeOut" />
-            </a-image>
+                     width="1"
+                     height="0.14"
+                     opacity={ this.state.opacity.x }
+                     id="change-seat-text-nav" />
           </Entity>
-          <Entity onMouseEnter={ this.handleMouseEnter }
-                  onMouseLeave={ this.handleMouseLeave }
+          <Entity onMouseEnter={ this.fadeIn }
+                  onMouseLeave={ this.fadeOut }
                   onClick={ this.props.handleChangeSeatClick } >
             <a-image
                   src="#change-seat"

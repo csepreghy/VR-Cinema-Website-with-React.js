@@ -1,6 +1,5 @@
 import {Entity} from 'aframe-react';
 import React from 'react';
-import * as Extras from 'aframe-extras';
 import Cursor from './Cursor';
 import Navigation from './navigation/Navigation';
 
@@ -459,6 +458,8 @@ export default class Camera extends React.Component {
   }
 
   introAnimation() {
+    let movie = document.querySelector('#movie');
+    movie.play();
     this.moveToNewView(this.seatCoordinates.CV_intro_2, 6000, 3000);
     setTimeout(() => {this.moveToNewView(this.seatCoordinates.S7_1, 5000, 0)}, 8000);
   }

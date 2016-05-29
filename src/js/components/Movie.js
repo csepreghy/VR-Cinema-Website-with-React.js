@@ -52,6 +52,7 @@ export default class Movie extends React.Component {
         <Entity>
           <a-video
               id="movie"
+              webkit-playsinline
               opacity={ this.state.opacity.x }
               src="#movie"
               width="90"

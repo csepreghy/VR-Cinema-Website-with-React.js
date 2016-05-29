@@ -2,24 +2,42 @@ import {Entity, Animation} from 'aframe-react';
 import React from 'react';
 
 export default class Back extends React.Component {
+
+  opacity = { x:0 };
+
   constructor(props) {
     super(props);
 
-    this.handleMouseEnter = this.handleMouseEnter.bind(this);
-    this.handleMouseLeave = this.handleMouseLeave.bind(this);
+    this.state = { opacity: { x: 0 }};
+
     this.redirect = this.redirect.bind(this);
+    this.fadeIn = this.fadeIn.bind(this);
+    this.fadeOut = this.fadeOut.bind(this);
+    this.tweenUpdate = this.tweenUpdate.bind(this);
   }
 
   redirect() {
     window.location = "http://www.grandteatret.dk/";
   }
 
-  handleMouseEnter() {
-    document.querySelector('#back-text-nav').emit('fadeIn');
+  fadeIn() {
+    let newOpacity = { x: 1 };
+    let tween = new TWEEN.Tween(this.opacity).to(newOpacity, 300);
+    tween.start();
+
+    tween.onUpdate(this.tweenUpdate);
   }
 
-  handleMouseLeave() {
-    document.querySelector('#back-text-nav').emit('fadeOut');
+  fadeOut() {
+    let newOpacity = { x: 0 };
+    let tween = new TWEEN.Tween(this.opacity).to(newOpacity, 300);
+    tween.start();
+
+    tween.onUpdate(this.tweenUpdate);
+  }
+
+  tweenUpdate() {
+    this.setState({ opacity: this.opacity });
   }
 
   render() {
@@ -31,23 +49,11 @@ export default class Back extends React.Component {
             <a-image src="#back-text"
                      width="2.2"
                      height="0.15"
-                     opacity="0"
-                     id="back-text-nav"
-            >
-              <Animation attribute="opacity"
-                         from="0"
-                         to="1"
-                         dur="350"
-                         begin="fadeIn" />
-              <Animation attribute="opacity"
-                         from="1"
-                         to="0"
-                         dur="200"
-                         begin="fadeOut" />
-            </a-image>
+                     opacity={ this.state.opacity.x }
+                     id="back-text-nav" />
           </Entity>
-          <Entity onMouseEnter={ this.handleMouseEnter }
-                  onMouseLeave={ this.handleMouseLeave }
+          <Entity onMouseEnter={ this.fadeIn }
+                  onMouseLeave={ this.fadeOut }
                   onClick={ this.redirect }>
             <a-image
                     src="#back"
