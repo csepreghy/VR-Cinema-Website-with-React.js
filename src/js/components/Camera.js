@@ -602,6 +602,11 @@ export default class Camera extends React.Component {
           <Entity id="cameraEntity" position={ [this.state.currentCameraPos.x, this.state.currentCameraPos.y, this.state.currentCameraPos.z] }>
             <Navigation handleChangeSeatClick={ this.props.handleChangeSeatClick }
                         handleBookSeatClick={ this.idToBookedSeat }/>
+            <Entity visible={this.state.navTextVisible}
+                    material={{color: 'white', transparent: true, shader: 'flat', opacity: this.state.navTextOpacity.x}}
+                    position={[-5, -2, -8]}
+                    size={0.01}
+                    text={{text: "Look down to see the navigation."}} />
             <Entity camera=""
                     universal-controls
                     touch-controls="enabled: false"
@@ -611,11 +616,6 @@ export default class Camera extends React.Component {
                       position={[-9, 2, -8]}
                       size={0.01}
                       text={{text: this.state.bookedThisSeatText}} />
-              <Entity visible={this.state.navTextVisible}
-                      material={{color: 'white', transparent: true, shader: 'flat', opacity: this.state.navTextOpacity.x}}
-                      position={[-5, -2, -8]}
-                      size={0.01}
-                      text={{text: "Look down to see the navigation."}} />
               <Entity visible={this.state.canvasTextVisible}
                       material={{color: 'white', transparent: true, shader: 'flat', opacity: this.state.canvasTextOpacity.x}}
                       position={[-10, -5, -10]}
