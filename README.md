@@ -4,9 +4,8 @@ To get started:
 
 ```bash
 npm install
-npm run serve-js &
-npm run serve
+npm run serve-js
 ```
 
-Then head over to localhost:5555.
+Then head over to localhost:8080.
 

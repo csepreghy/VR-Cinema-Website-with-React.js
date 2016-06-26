@@ -607,15 +607,15 @@ export default class Camera extends React.Component {
                     position={[-5, -2, -8]}
                     size={0.01}
                     text={{text: "Look down to see the navigation."}} />
+            <Entity visible={this.state.textVisible}
+                    material={{color: 'white', transparent: true, shader: 'flat', opacity: this.state.textOpacity.x}}
+                    position={[-9, -4, -8]}
+                    size={0.01}
+                    text={{text: this.state.bookedThisSeatText}} />
             <Entity camera=""
                     universal-controls
                     touch-controls="enabled: false"
-                    keyboard-controls="enabled: false">
-              <Entity visible={this.state.textVisible}
-                      material={{color: 'white', transparent: true, shader: 'flat', opacity: this.state.textOpacity.x}}
-                      position={[-9, 2, -8]}
-                      size={0.01}
-                      text={{text: this.state.bookedThisSeatText}} />
+                    keyboard-controls="enabled: true">
               <Entity visible={this.state.canvasTextVisible}
                       material={{color: 'white', transparent: true, shader: 'flat', opacity: this.state.canvasTextOpacity.x}}
                       position={[-10, -5, -10]}

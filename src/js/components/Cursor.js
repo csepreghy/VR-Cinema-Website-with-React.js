@@ -46,12 +46,12 @@ export default class Cursor extends React.Component {
     tween.delay(500);
     tween.start();
     tween.onUpdate(this.tweenRotationUpdate);
-    tween.onComplete(this.changeColorToColor)
+    tween.onComplete(this.changeColorToColor);
 
   }
 
   changeColorToColor() {
-    this.setState({color: "#53AD4B"});
+    this.setState({color: "#FFFFFF"});
     this.cursorAnimation2();
   }
 

@@ -55,8 +55,13 @@ class BoilerplateScene extends React.Component {
   }
 
   render () {
+
+    const obj1 = {x:1};
+    const obj2 = {x:1};
+    console.log(obj1 === obj2);
+
     return (
-      <Scene stats="">
+      <Scene>
         <Assets introAnimation={this.introAnimation}/>
         <Camera handleChangeSeatClick={ this.handleChangeSeatClick }
                 ref="camera"

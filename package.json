@@ -28,17 +28,18 @@
     "aframe",
     "react",
     "vr",
-    "boilerplate",
     "a-frame",
     "mozvr",
-    "webvr"
+    "webvr",
+    "cinema",
+    "booking"
   ],
-  "author": "Kevin Ngo <kngo@mozilla.com>",
-  "license": "MIT",
+  "author": "Andras Csepreghy <andris788@gmail.com>",
+  "license": "",
   "bugs": {
-    "url": "https://github.com/ngokevin/aframe-react-boilerplate/issues"
+    "url": ""
   },
-  "homepage": "https://github.com/ngokevin/aframe-react-boilerplate#readme",
+  "homepage": "",
   "devDependencies": {
     "babel": "^6.3.13",
     "babel-core": "^6.3.15",

@@ -372,6 +372,13 @@ export default class Seats extends React.Component {
   ];
 
 
+  levels = [
+    {clicks: 10, globalTimer: 120},
+    {clicks: 20, globalTimer: 220},
+    {clicks: 30, globalTimer: 320},
+    {clicks: 40, globalTimer: 420},
+  ];
+  
   render() {
     return (
         <Entity visible={ this.state.visible }>
