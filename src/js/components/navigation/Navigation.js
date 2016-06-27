@@ -12,7 +12,9 @@ export default class Navigation extends React.Component {
     super(props);
 
     this.state = {
-      opacity: { x: 0 }
+      opacity: { x: 0 },
+      navBackTextOpacity: { x: 0 },
+      navBackTextVisible: false
     };
 
     this.fadeIn = this.fadeIn.bind(this);
@@ -41,11 +43,13 @@ export default class Navigation extends React.Component {
   }
 
   render() {
+    console.log(this.state.navBackTextOpacity);
+    console.log(this.state.navBackTextVisible);
     return (
         <Entity>
           <Back Opacity={ this.state.opacity.back }
                 fadeIn={ this.fadeIn }
-                fadeOut={ this.fadeOut }/>
+                fadeOut={ this.fadeOut } />
           <BookSeat Opacity={ this.state.opacity.bookseat }
                     fadeIn={ this.fadeIn }
                     fadeOut={ this.fadeOut }

@@ -627,4 +627,3 @@ export default class Camera extends React.Component {
       );
     }
 }
-

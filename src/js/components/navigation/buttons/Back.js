@@ -4,16 +4,23 @@ import React from 'react';
 export default class Back extends React.Component {
 
   opacity = { x:0 };
+  navBackTextOpacity={ x: 0 };
 
   constructor(props) {
     super(props);
 
-    this.state = { opacity: { x: 0 }};
+    this.state = {
+      opacity: { x: 0 },
+      navBackTextVisible: false
+     };
 
     this.redirect = this.redirect.bind(this);
     this.fadeIn = this.fadeIn.bind(this);
     this.fadeOut = this.fadeOut.bind(this);
     this.tweenUpdate = this.tweenUpdate.bind(this);
+    this.tweenNavBackTextOpacityUpdate = this.tweenNavBackTextOpacityUpdate.bind(this);
+    this.fadeBackTextIn = this.fadeBackTextIn.bind(this);
+    this.fadeBackTextOut = this.fadeBackTextOut.bind(this);
   }
 
   redirect() {
@@ -36,6 +43,36 @@ export default class Back extends React.Component {
     tween.onUpdate(this.tweenUpdate);
   }
 
+  fadeBackTextIn() {
+    console.log("fade in");
+    this.setState({ navBackTextVisible: true });
+
+    let newOpacity = { x: 1 };
+
+    let tween = new TWEEN.Tween(this.navBackTextOpacity).to(newOpacity, 300);
+    tween.easing(TWEEN.Easing.Cubic.InOut);
+    tween.start();
+    tween.onUpdate(this.tweenNavBackTextOpacityUpdate);
+  }
+
+  fadeBackTextOut() {
+    console.log("fade out");
+    this.setState({ navBackTextVisible: true });
+
+    let newOpacity = { x: 0 };
+
+    let tween = new TWEEN.Tween(this.navBackTextOpacity).to(newOpacity, 300);
+    tween.easing(TWEEN.Easing.Cubic.InOut);
+    tween.start();
+    tween.onUpdate(this.tweenNavBackTextOpacityUpdate);
+  }
+
+  tweenNavBackTextOpacityUpdate() {
+    console.log(this.state.navBackTextOpacity);
+    console.log(this.navBackTextOpacity);
+    this.setState({ navBackTextOpacity: this.navBackTextOpacity });
+  }
+
   tweenUpdate() {
     this.setState({ opacity: this.opacity });
   }
@@ -46,14 +83,15 @@ export default class Back extends React.Component {
                 rotation={[-40, 45, 0]}
         >
           <Entity position={[0, 0.8, 0]}>
-            <a-image src="#back-text"
-                     width="2.2"
-                     height="0.15"
-                     opacity={ this.state.opacity.x }
-                     id="back-text-nav" />
+            <Entity  visible={this.state.navBackTextVisible}
+                     material={{color: 'white', transparent: true, shader: 'flat', opacity: this.navBackTextOpacity.x}}
+                     position={[-4.15, 0, -6]}
+                     size={0.01}
+                     text={{text: "Go back to normal website"}} />
           </Entity>
-          <Entity onMouseEnter={ this.fadeIn }
-                  onMouseLeave={ this.fadeOut }
+          <Entity onMouseEnter={ this.fadeBackTextIn }
+                  onMouseLeave={ this.fadeBackTextOut }
+                /*  onMouseLeave={  } */
                   onClick={ this.redirect }>
             <a-image
                     src="#back"
