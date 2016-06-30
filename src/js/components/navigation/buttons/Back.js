@@ -4,23 +4,23 @@ import React from 'react';
 export default class Back extends React.Component {
 
   opacity = { x:0 };
-  navBackTextOpacity={ x: 0 };
+  navTextOpacity = { x: 0 };
 
   constructor(props) {
     super(props);
 
     this.state = {
       opacity: { x: 0 },
-      navBackTextVisible: false
-     };
+      navTextVisible: false
+    };
 
     this.redirect = this.redirect.bind(this);
     this.fadeIn = this.fadeIn.bind(this);
     this.fadeOut = this.fadeOut.bind(this);
     this.tweenUpdate = this.tweenUpdate.bind(this);
-    this.tweenNavBackTextOpacityUpdate = this.tweenNavBackTextOpacityUpdate.bind(this);
-    this.fadeBackTextIn = this.fadeBackTextIn.bind(this);
-    this.fadeBackTextOut = this.fadeBackTextOut.bind(this);
+    this.tweenTextOpacityUpdate = this.tweenTextOpacityUpdate.bind(this);
+    this.fadeTextIn = this.fadeTextIn.bind(this);
+    this.fadeTextOut = this.fadeTextOut.bind(this);
   }
 
   redirect() {
@@ -43,34 +43,30 @@ export default class Back extends React.Component {
     tween.onUpdate(this.tweenUpdate);
   }
 
-  fadeBackTextIn() {
-    console.log("fade in");
-    this.setState({ navBackTextVisible: true });
+  fadeTextIn() {
+    this.setState({ navTextVisible: true });
 
     let newOpacity = { x: 1 };
 
-    let tween = new TWEEN.Tween(this.navBackTextOpacity).to(newOpacity, 300);
+    let tween = new TWEEN.Tween(this.navTextOpacity).to(newOpacity, 300);
     tween.easing(TWEEN.Easing.Cubic.InOut);
     tween.start();
-    tween.onUpdate(this.tweenNavBackTextOpacityUpdate);
+    tween.onUpdate(this.tweenTextOpacityUpdate);
   }
 
-  fadeBackTextOut() {
-    console.log("fade out");
-    this.setState({ navBackTextVisible: true });
-
+  fadeTextOut() {
     let newOpacity = { x: 0 };
 
-    let tween = new TWEEN.Tween(this.navBackTextOpacity).to(newOpacity, 300);
+    let tween = new TWEEN.Tween(this.navTextOpacity).to(newOpacity, 300);
     tween.easing(TWEEN.Easing.Cubic.InOut);
     tween.start();
-    tween.onUpdate(this.tweenNavBackTextOpacityUpdate);
+    tween.onUpdate(this.tweenTextOpacityUpdate);
+
+
   }
 
-  tweenNavBackTextOpacityUpdate() {
-    console.log(this.state.navBackTextOpacity);
-    console.log(this.navBackTextOpacity);
-    this.setState({ navBackTextOpacity: this.navBackTextOpacity });
+  tweenTextOpacityUpdate() {
+    this.setState({ navTextOpacity: this.navTextOpacity });
   }
 
   tweenUpdate() {
@@ -83,15 +79,14 @@ export default class Back extends React.Component {
                 rotation={[-40, 45, 0]}
         >
           <Entity position={[0, 0.8, 0]}>
-            <Entity  visible={this.state.navBackTextVisible}
-                     material={{color: 'white', transparent: true, shader: 'flat', opacity: this.navBackTextOpacity.x}}
+            <Entity  visible={this.state.navTextVisible}
+                     material={{color: 'white', transparent: true, shader: 'flat', opacity: this.navTextOpacity.x}}
                      position={[-4.15, 0, -6]}
                      size={0.01}
                      text={{text: "Go back to normal website"}} />
           </Entity>
-          <Entity onMouseEnter={ this.fadeBackTextIn }
-                  onMouseLeave={ this.fadeBackTextOut }
-                /*  onMouseLeave={  } */
+          <Entity onMouseEnter={ this.fadeTextIn }
+                  onMouseLeave={ this.fadeTextOut }
                   onClick={ this.redirect }>
             <a-image
                     src="#back"

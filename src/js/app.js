@@ -27,9 +27,8 @@ class BoilerplateScene extends React.Component {
 
     this.seatAnimation = this.seatAnimation.bind(this);
     this.handleChangeSeatClick = this.handleChangeSeatClick.bind(this);
-    this.introAnimation = this.introAnimation.bind(this);
   }
-  
+
   handleChangeSeatClick() {
     this.refs['camera'].moveTo_CV_change_seat();
     this.refs['camera'].fadeCanvasTextIn();
@@ -49,16 +48,7 @@ class BoilerplateScene extends React.Component {
     this.refs['movie'].fadeIn();
   }
 
-  introAnimation() {
-    console.log("intro anim app level")
-    this.refs['camera'].introAnimation();
-  }
-
   render () {
-
-    const obj1 = {x:1};
-    const obj2 = {x:1};
-    console.log(obj1 === obj2);
 
     return (
       <Scene>

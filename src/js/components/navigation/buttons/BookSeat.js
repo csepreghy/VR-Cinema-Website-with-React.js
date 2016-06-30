@@ -4,15 +4,23 @@ import React from 'react';
 export default class BookSeat extends React.Component {
 
   opacity = { x: 0 };
+  btnTextOpacity = { x: 0 };
 
   constructor(props) {
     super(props);
 
-    this.state = { opacity: { x: 0}};
+    this.state = {
+      opacity: { x: 0 },
+      navTextVisible: false,
+      btnTextOpacity: { x: 0 }
+    };
 
     this.fadeIn = this.fadeIn.bind(this);
     this.fadeOut = this.fadeOut.bind(this);
     this.tweenUpdate = this.tweenUpdate.bind(this);
+    this.fadeTextIn = this.fadeTextIn.bind(this);
+    this.fadeTextOut = this.fadeTextOut.bind(this);
+    this.tweenTextOpacityUpdate = this.tweenTextOpacityUpdate.bind(this);
   }
 
   fadeIn() {
@@ -21,6 +29,8 @@ export default class BookSeat extends React.Component {
     tween.start();
 
     tween.onUpdate(this.tweenUpdate);
+
+    this.fadeTextIn(300);
   }
 
   fadeOut() {
@@ -35,19 +45,45 @@ export default class BookSeat extends React.Component {
     this.setState({ opacity: this.opacity });
   }
 
+  fadeTextIn() {
+    this.setState({ navTextVisible: true });
+
+    let newOpacity = { x: 1 };
+
+    let tween = new TWEEN.Tween(this.btnTextOpacity).to(newOpacity, 300);
+    tween.easing(TWEEN.Easing.Cubic.InOut);
+    tween.start();
+    tween.onUpdate(this.tweenTextOpacityUpdate);
+  }
+
+  fadeTextOut() {
+    let newOpacity = { x: 0 };
+
+    let tween = new TWEEN.Tween(this.btnTextOpacity).to(newOpacity, 300);
+    tween.easing(TWEEN.Easing.Cubic.InOut);
+    tween.start();
+    tween.onUpdate(this.tweenTextOpacityUpdate);
+
+    setTimeout(() => {this.setState({ navTextVisible: false }) }, 400);
+  }
+
+  tweenTextOpacityUpdate() {
+    this.setState({ navTextOpacity: this.btnTextOpacity });
+  }
+
   render() {
     return (
         <Entity position={[0, -2, -1.4]}
                 rotation={[-40, 0, 0]} >
           <Entity position={[0, 0.8, 0.1]}>
-            <a-image src="#book-seat-text"
-                     width="1.2"
-                     height="0.12"
-                     opacity={ this.opacity.x }
-                     id="book-seat-text-nav" />
+            <Entity  visible={this.state.navTextVisible}
+                     material={{color: 'white', transparent: true, shader: 'flat', opacity: this.btnTextOpacity.x}}
+                     position={[-2, 0, -6]}
+                     size={0.01}
+                     text={{text: "Book this seat"}} />
           </Entity>
-          <Entity onMouseEnter={ this.fadeIn }
-                  onMouseLeave={ this.fadeOut }
+          <Entity onMouseEnter={ this.fadeTextIn }
+                  onMouseLeave={ this.fadeTextOut }
                   onClick={ this.props.handleBookSeatClick }>
             <a-image
                 src="#book-seat"

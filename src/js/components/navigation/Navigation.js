@@ -43,8 +43,6 @@ export default class Navigation extends React.Component {
   }
 
   render() {
-    console.log(this.state.navBackTextOpacity);
-    console.log(this.state.navBackTextVisible);
     return (
         <Entity>
           <Back Opacity={ this.state.opacity.back }
