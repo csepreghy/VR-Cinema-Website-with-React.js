@@ -18,10 +18,6 @@ export default class Assets extends React.Component {
           <img id="book-seat" src="assets/img/book-seat-icon.png"></img>
           <img id="change-seat" src="assets/img/change-seat-icon.png"></img>
 
-          <img id="back-text" src="assets/img/back-text.png"></img>
-          <img id="book-seat-text" src="assets/img/book-seat-text.png"></img>
-          <img id="change-seat-text" src="assets/img/change-seat-text.png"></img>
-
           <img id="seat" src="assets/img/seats/seat.png"></img>
 
           <video id="movie" loop="true" src="assets/movie.mp4"></video>

@@ -1,7 +1,7 @@
 {
-  "name": "aframe-react-boilerplate",
+  "name": "VR-Cinema-Website-with-React",
   "version": "1.0.0",
-  "description": "Boilerplate for using A-Frame (VR) with React.",
+  "description": "Virtual Reality Booking System for cinemas",
   "dependencies": {
     "aframe": "^0.2.0",
     "aframe-core": "^0.1.6",
@@ -22,7 +22,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ngokevin/aframe-react-boilerplate.git"
+    "url": "https://github.com/csepreghy/VR-Cinema-Website-with-React.js"
   },
   "keywords": [
     "aframe",
