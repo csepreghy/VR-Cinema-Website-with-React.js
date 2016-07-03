@@ -6,6 +6,7 @@ import ReactDOM from 'react-dom';
 import 'aframe-fps-look-component';
 import 'aframe-extras';
 import 'aframe-text-component';
+import 'tween';
 
 import Camera from './components/Camera';
 import Assets from './components/Assets';
