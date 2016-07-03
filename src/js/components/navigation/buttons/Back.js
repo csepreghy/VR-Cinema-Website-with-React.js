@@ -61,8 +61,6 @@ export default class Back extends React.Component {
     tween.easing(TWEEN.Easing.Cubic.InOut);
     tween.start();
     tween.onUpdate(this.tweenTextOpacityUpdate);
-
-
   }
 
   tweenTextOpacityUpdate() {
