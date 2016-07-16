@@ -19,10 +19,10 @@ export default class Seats extends React.Component {
   row_11 = 0.5;
   row_12 = 0.35;
   row_13 = 0.2;
-  row_14 = 0.15;
-  row_15 = 0;
-  row_16 = -0.15;
-  row_17 = -0.3;
+  row_14 = 0.05;
+  row_15 = -0.1;
+  row_16 = -0.25;
+  row_17 = -0.40;
 
 
 
