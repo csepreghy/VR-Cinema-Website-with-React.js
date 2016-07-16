@@ -11,7 +11,6 @@ export default class Light extends React.Component {
   material = {color: '#fff', shader: 'flat'};
 
   render() {
-    console.log(this.props.Rotation);
     return (
 
         <Entity>

@@ -11,7 +11,7 @@ export default class Cursor extends React.Component {
 
   position = {x: 0, y: 0, z: -2.1};
   initialPos = {x: 0, y: 0, z: -2.1};
-  seatChangePos = {x: 0, y: 0, z: -4};
+  seatChangePos = {x: 0, y: 0, z: -3};
   rotation = {x: 0, y: 0, z: 0};
 
   constructor(props) {

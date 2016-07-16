@@ -78,7 +78,7 @@ export default class Back extends React.Component {
         >
           <Entity position={[0, 0.8, 0]}>
             <Entity  visible={this.state.navTextVisible}
-                     material={{color: 'white', transparent: true, shader: 'flat', opacity: this.navTextOpacity.x}}
+                     material={{color: 'white', shader: 'flat', opacity: this.navTextOpacity.x}}
                      position={[-4.15, 0, -6]}
                      size={0.01}
                      text={{text: "Go back to normal website"}} />

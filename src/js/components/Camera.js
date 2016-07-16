@@ -2,6 +2,7 @@ import {Entity} from 'aframe-react';
 import React from 'react';
 import Cursor from './Cursor';
 import Navigation from './navigation/Navigation';
+import Seats from './navigation/seats/Seats';
 
 export default class Camera extends React.Component {
 
@@ -443,10 +444,10 @@ export default class Camera extends React.Component {
             navTextVisible: false,
             navTextOpacity: this.navTextOpacity,
             canvasTextVisible: false,
-            canvasTextOpacity: this.canvasTextOpacity
+            canvasTextOpacity: this.canvasTextOpacity,
+            yourCurrentSeat: 'S7_1'
     };
 
-    this.moveTo_CV_change_seat = this.moveTo_CV_change_seat.bind(this);
     this.tweenUpdate = this.tweenUpdate.bind(this);
     this.moveToNewView = this.moveToNewView.bind(this);
     this.idToCoordinates = this.idToCoordinates.bind(this);
@@ -462,6 +463,7 @@ export default class Camera extends React.Component {
     this.fadeCanvasTextIn = this.fadeCanvasTextIn.bind(this);
     this.fadeCanvasTextOut = this.fadeCanvasTextOut.bind(this);
     this.tweenCanvasTextUpdate = this.tweenCanvasTextUpdate.bind(this);
+    this.seatAnimation = this.seatAnimation.bind(this);
   }
 
   componentDidMount() {
@@ -589,12 +591,16 @@ export default class Camera extends React.Component {
     this.fadeNavTextIn();
   }
 
-  moveTo_CV_change_seat() {
-    this.moveToNewView(this.seatCoordinates.CV_change_seat, 4000, 500);
-  }
-
   idToCoordinates(id) {
     this.moveToNewView(this.seatCoordinates[id], 4000, 0);
+  }
+
+  seatAnimation(e) {
+    //this.setState({ yourCurrentSeat: e.target.id });
+
+    this.idToCoordinates(e.target.id);
+    this.refs['cursor'].revertBackToOriginal();
+    this.refs['seats'].fadeOut();
   }
 
   render() {
@@ -602,6 +608,7 @@ export default class Camera extends React.Component {
           <Entity id="cameraEntity" position={ [this.state.currentCameraPos.x, this.state.currentCameraPos.y, this.state.currentCameraPos.z] }>
             <Navigation handleChangeSeatClick={ this.props.handleChangeSeatClick }
                         handleBookSeatClick={ this.idToBookedSeat }/>
+            <Seats ref="seats" seatAnimation={ this.seatAnimation }/>
             <Entity visible={this.state.navTextVisible}
                     material={{color: 'white', transparent: true, shader: 'flat', opacity: this.state.navTextOpacity.x}}
                     position={[-5, -2, -8]}
@@ -613,7 +620,7 @@ export default class Camera extends React.Component {
                     size={0.01}
                     text={{text: this.state.bookedThisSeatText}} />
             <Entity camera=""
-                    universal-controls
+                    universal-controls="movementAcceleration: 200"
                     touch-controls="enabled: false"
                     keyboard-controls="enabled: true">
               <Entity visible={this.state.canvasTextVisible}

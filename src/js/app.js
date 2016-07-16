@@ -13,40 +13,26 @@ import Assets from './components/Assets';
 import CinemaModel from './components/Cinema-Model';
 import Movie from './components/Movie';
 import Lights from './components/Lights';
-import Seats from './components//navigation/seats/Seats';
+import Seats from './components/navigation/seats/Seats';
 
 var extras = require('aframe-extras');
 AFRAME.registerComponent('velocity', extras.math.velocity); // Register a single component.
 extras.physics.registerAll();                               // Register a particular package, and its dependencies.
 extras.registerAll();
 
-class BoilerplateScene extends React.Component {
+class AppScene extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = { yourCurrentSeat: 'S7_1'};
 
-    this.seatAnimation = this.seatAnimation.bind(this);
     this.handleChangeSeatClick = this.handleChangeSeatClick.bind(this);
   }
 
   handleChangeSeatClick() {
-    this.refs['camera'].moveTo_CV_change_seat();
     this.refs['camera'].fadeCanvasTextIn();
     this.refs['camera'].refs['cursor'].cursorAnimation();
-    this.refs['seats'].fadeIn();
-    this.refs['movie'].fadeOut();
-  }
-
-
-  seatAnimation(e) {
-
-    this.setState({ yourCurrentSeat: e.target.id });
-
-    this.refs['camera'].idToCoordinates(e.target.id);
-    this.refs['camera'].refs['cursor'].revertBackToOriginal();
-    this.refs['seats'].fadeOut();
-    this.refs['movie'].fadeIn();
+    this.refs['camera'].refs['seats'].fadeIn();
   }
 
   render () {
@@ -57,10 +43,7 @@ class BoilerplateScene extends React.Component {
         <Camera handleChangeSeatClick={ this.handleChangeSeatClick }
                 ref="camera"
                 yourCurrentSeat={ this.state.yourCurrentSeat } />
-
         <Lights />
-
-        <Seats ref="seats" seatAnimation={ this.seatAnimation }/>
         <CinemaModel />
         <Movie ref="movie"/>
       </Scene>
@@ -68,4 +51,4 @@ class BoilerplateScene extends React.Component {
   }
 }
 
-ReactDOM.render(<BoilerplateScene/>, document.getElementById('scene-container'));
+ReactDOM.render(<AppScene/>, document.getElementById('scene-container'));
