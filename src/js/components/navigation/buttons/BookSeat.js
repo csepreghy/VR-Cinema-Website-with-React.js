@@ -78,7 +78,7 @@ export default class BookSeat extends React.Component {
           <Entity position={[0, 0.8, 0.1]}>
             <Entity  visible={this.state.navTextVisible}
                      material={{color: 'white', transparent: true, shader: 'flat', opacity: this.btnTextOpacity.x}}
-                     position={[-2, 0, -6]}
+                     position={[-2.2, 0, -6]}
                      size={0.01}
                      text={{text: "Book this seat"}} />
           </Entity>

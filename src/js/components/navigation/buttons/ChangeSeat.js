@@ -76,7 +76,7 @@ export default class ChangeSeat extends React.Component {
           <Entity position={[2.14, 0.8, 0]} >
             <Entity  visible={this.state.navTextVisible}
                      material={{color: 'white', transparent: true, shader: 'flat', opacity: this.navTextOpacity.x}}
-                     position={[-4.15, 0, -6]}
+                     position={[-4.18, 0, -6]}
                      size={0.01}
                      text={{text: "Change seat"}} />
           </Entity>
