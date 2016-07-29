@@ -28,6 +28,7 @@ export default class Lights extends React.Component {
         <Entity>
           <Light Position={this.position_canvas} Rotation={this.rotationCanvas} Angle={this.angleCanvas} Decay={2} Distance={300} Type={'spot'} Intensity={0.5}/>
           <Light Position={this.position_ceiling_back} Rotation={this.rotationCeiling} Angle={this.angleCeiling} Decay={2} Distance={300} Type={'point'} Intensity={0.4}/>
+          <Light Position={this.position_ceiling_back} Rotation={this.rotationCeiling} Angle={this.angleCeiling} Decay={2} Distance={300} Type={'hemisphere'} Intensity={0.1}/>
         </Entity>
     );
   }

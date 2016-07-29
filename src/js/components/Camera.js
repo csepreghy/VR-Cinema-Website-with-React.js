@@ -482,17 +482,16 @@ export default class Camera extends React.Component {
   }
 
   fadeCanvasTextIn() {
-    setTimeout(() => {this.setState({ canvasTextVisible: true })}, 4010);
+    this.setState({ canvasTextVisible: true });
 
     let newOpacity = { x: 1 };
 
     let tween = new TWEEN.Tween(this.canvasTextOpacity).to(newOpacity, 1000);
     tween.easing(TWEEN.Easing.Cubic.InOut);
-    tween.delay(5020);
     tween.start();
     tween.onUpdate(this.tweenCanvasTextUpdate);
 
-    setTimeout(() => {this.fadeCanvasTextOut()}, 12000);
+    setTimeout(() => {this.fadeCanvasTextOut()}, 5001);
   }
 
   fadeCanvasTextOut() {
@@ -613,7 +612,12 @@ export default class Camera extends React.Component {
                     material={{color: 'white', transparent: true, shader: 'flat', opacity: this.state.navTextOpacity.x}}
                     position={[-5, -2, -8]}
                     size={0.01}
-                    text={{text: "Look down to see the navigation."}} />
+                    text={{text: "Look down to see the navigation"}} />
+            <Entity visible={this.state.canvasTextVisible}
+                    material={{color: 'white', transparent: true, shader: 'flat', opacity: this.state.canvasTextOpacity.x}}
+                    position={[-5.5, -3.5, -8]}
+                    size={0.01}
+                    text={{text: "Click on a red button to change seat"}} />
             <Entity visible={this.state.textVisible}
                     material={{color: 'white', transparent: true, shader: 'flat', opacity: this.state.textOpacity.x}}
                     position={[-9, -4, -8]}
@@ -623,11 +627,6 @@ export default class Camera extends React.Component {
                     universal-controls="movementAcceleration: 200"
                     touch-controls="enabled: false"
                     keyboard-controls="enabled: true">
-              <Entity visible={this.state.canvasTextVisible}
-                      material={{color: 'white', transparent: true, shader: 'flat', opacity: this.state.canvasTextOpacity.x}}
-                      position={[-10, -5, -10]}
-                      size={0.001}
-                      text={{text: "You can sit in another seat by clicking a red button on the canvas."}} />
               <Cursor ref="cursor"/>
             </Entity>
           </Entity>
