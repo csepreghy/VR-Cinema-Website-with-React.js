@@ -427,7 +427,6 @@ export default class Camera extends React.Component {
 
   currentCameraPos = this.seatCoordinates.CV_intro;
 
-  opacity = { x: 0 };
   textOpacity = { x: 0 };
   navTextOpacity = { x: 0 };
   canvasTextOpacity = { x: 0 };
@@ -438,7 +437,6 @@ export default class Camera extends React.Component {
     this.state = {
             currentCameraPos: this.currentCameraPos,
             bookedThisSeatText: "",
-            opacity: this.opacity,
             textOpacity: this.textOpacity,
             textVisible: false,
             navTextVisible: false,
@@ -471,9 +469,10 @@ export default class Camera extends React.Component {
   }
 
   idToBookedSeat() {
-    let str = this.props.yourCurrentSeat;
+    let str = this.state.yourCurrentSeat;
 
-    let rowNum = str.substr(1, 1);
+    let rowNum=str.substring(str.lastIndexOf("S")+1,str.lastIndexOf("_"));
+
     let seatNum = str.substr(str.indexOf("_") + 1);
 
     this.setState({bookedThisSeatText: "You booked seat number " + seatNum + " " + "from row " + rowNum + ". Enjoy your movie!"});
@@ -595,7 +594,7 @@ export default class Camera extends React.Component {
   }
 
   seatAnimation(e) {
-    //this.setState({ yourCurrentSeat: e.target.id });
+    this.setState({ yourCurrentSeat: e.target.id });
 
     this.idToCoordinates(e.target.id);
     this.refs['cursor'].revertBackToOriginal();
