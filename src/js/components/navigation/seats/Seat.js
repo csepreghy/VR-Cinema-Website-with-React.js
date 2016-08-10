@@ -7,7 +7,7 @@ export default class Seat extends React.Component {
     super(props);
 
     this.state = {
-      opacity: 1
+      opacity: 1,
     };
   }
 
@@ -16,7 +16,7 @@ export default class Seat extends React.Component {
     return (
         <Entity position={this.props.seatPos} >
           <Entity  visible={ true }
-                   material={{ color: '#972323', transparent: true, shader: 'flat', opacity: this.props.Opacity }}
+                   material={{ color: this.props.buttonColor, transparent: true, shader: 'flat', opacity: this.props.Opacity }}
                    geometry={{ primitive: "plane", width: 0.2, height: 0.1 }}
                    id={this.props.componentId}
                    opacity={ this.props.Opacity }
