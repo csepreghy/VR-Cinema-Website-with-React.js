@@ -8,9 +8,6 @@
 #  
 #  ==========================================================================
 
-newmtl default_Mat
-illum 1
-
 newmtl Door
 Kd 0.920000 0.920000 0.920000
 illum 1
@@ -40,11 +37,13 @@ newmtl fal_kijevetel
 Kd 0.314471 0.042706 0.045294
 illum 1
 
-newmtl lights
+newmtl lights_glow
+Ka 0.760000 0.760000 0.637804
 Kd 1.000000 0.945098 0.780392
 illum 1
 
-newmtl canvas2
+newmtl canvas_glow
+Ka 1.000000 1.000000 1.000000
 Kd 1.000000 1.000000 1.000000
 illum 1
 
@@ -56,3 +55,6 @@ newmtl Velvet
 Kd 1.000000 0.000000 0.000000
 illum 1
 map_Kd velvet texture.jpg
+
+newmtl default_Mat
+illum 1
