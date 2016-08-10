@@ -24,8 +24,6 @@ class AppScene extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { yourCurrentSeat: 'S7_1'};
-
     this.handleChangeSeatClick = this.handleChangeSeatClick.bind(this);
   }
 
@@ -41,8 +39,7 @@ class AppScene extends React.Component {
       <Scene stats="">
         <Assets introAnimation={this.introAnimation}/>
         <Camera handleChangeSeatClick={ this.handleChangeSeatClick }
-                ref="camera"
-                yourCurrentSeat={ this.state.yourCurrentSeat } />
+                ref="camera" />
         <Lights />
         <CinemaModel />
         <Movie ref="movie"/>
