@@ -53,12 +53,6 @@ export default class Seats extends React.Component {
   x_26 = 1.125;
   x_27 = -0.875;
 
-  x_23 = -0.375;
-  x_22 = 0.625;
-  x_25 = -0.625;
-  x_24 = 0.875;
-  x_27 = -0.875;
-  x_26 = 1.125;
   x_42 = -1.125;
   x_43 = 1.375;
   x_44 = -1.375;
@@ -73,68 +67,6 @@ export default class Seats extends React.Component {
   x_53 = 2.625;
   x_54 = -2.625;
   x_55 = 2.875;
-
-  x_56 = -0.875;
-  x_57 = 1.125;
-  x_58 = -1.125;
-  x_59 = 1.375;
-  x_60 = -1.375;
-  x_61 = 1.625;
-  x_62 = -1.625;
-  x_63 = 1.875;
-  x_64 = -1.875;
-  x_65 = 2.125;
-  x_66 = -2.125;
-  x_67 = 2.375;
-  x_68 = -2.375;
-  x_69 = 2.625;
-  x_70 = -2.625;
-  x_71 = 2.875;
-
-  red = '#972323';
-
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      opacity: this.opacity,
-      visible: false
-    };
-
-    this.fadeIn = this.fadeIn.bind(this);
-    this.tweenUpdate = this.tweenUpdate.bind(this);
-    this.fadeOut = this.fadeOut.bind(this);
-  }
-
-  //FadeIn Animation
-
-  fadeIn() {
-    this.setState({visible: true});
-
-    let newOpacity = { x: 1 };
-    let tween = new TWEEN.Tween(this.opacity).to(newOpacity, 500);
-    tween.start();
-
-    tween.onUpdate(this.tweenUpdate);
-  }
-
-  //FadeOut Animation
-
-  fadeOut() {
-    setTimeout(() => {this.setState({visible: false})}, 501);
-
-    let newOpacity = { x: 0 };
-    let tween = new TWEEN.Tween(this.opacity).to(newOpacity, 500);
-    tween.start();
-
-    tween.onUpdate(this.tweenUpdate);
-  }
-
-  tweenUpdate() {
-    this.setState({ opacity: this.opacity });
-  }
-
-
 
   seatButtonCoordinates = [
     [{id: 'S1_1'}, {pos: [this.x_1, this.row_1, this.Z_Axis]}],
@@ -372,89 +304,132 @@ export default class Seats extends React.Component {
     [{id: 'S12_19'}, {pos: [this.x_54, this.row_12, this.Z_Axis]}],
     [{id: 'S12_20'}, {pos: [this.x_55, this.row_12, this.Z_Axis]}],
 
-    [{id: 'S13_1'}, {pos: [this.x_56, this.row_13, this.Z_Axis]}],
-    [{id: 'S13_2'}, {pos: [this.x_57, this.row_13, this.Z_Axis]}],
-    [{id: 'S13_3'}, {pos: [this.x_58, this.row_13, this.Z_Axis]}],
-    [{id: 'S13_4'}, {pos: [this.x_59, this.row_13, this.Z_Axis]}],
-    [{id: 'S13_5'}, {pos: [this.x_60, this.row_13, this.Z_Axis]}],
-    [{id: 'S13_6'}, {pos: [1.625, this.row_13, this.Z_Axis]}],
-    [{id: 'S13_7'}, {pos: [-1.625, this.row_13, this.Z_Axis]}],
-    [{id: 'S13_8'}, {pos: [1.875, this.row_13, this.Z_Axis]}],
-    [{id: 'S13_9'}, {pos: [-1.875, this.row_13, this.Z_Axis]}],
-    [{id: 'S13_10'}, {pos: [2.125, this.row_13, this.Z_Axis]}],
-    [{id: 'S13_11'}, {pos: [-2.125, this.row_13, this.Z_Axis]}],
-    [{id: 'S13_12'}, {pos: [2.375, this.row_13, this.Z_Axis]}],
-    [{id: 'S13_13'}, {pos: [-2.375, this.row_13, this.Z_Axis]}],
-    [{id: 'S13_14'}, {pos: [2.625, this.row_13, this.Z_Axis]}],
-    [{id: 'S13_15'}, {pos: [-2.625, this.row_13, this.Z_Axis]}],
-    [{id: 'S13_16'}, {pos: [2.875, this.row_13, this.Z_Axis]}],
+    [{id: 'S13_1'}, {pos: [this.x_27, this.row_13, this.Z_Axis]}],
+    [{id: 'S13_2'}, {pos: [this.x_26, this.row_13, this.Z_Axis]}],
+    [{id: 'S13_3'}, {pos: [this.x_42, this.row_13, this.Z_Axis]}],
+    [{id: 'S13_4'}, {pos: [this.x_43, this.row_13, this.Z_Axis]}],
+    [{id: 'S13_5'}, {pos: [this.x_44, this.row_13, this.Z_Axis]}],
+    [{id: 'S13_6'}, {pos: [this.x_45, this.row_13, this.Z_Axis]}],
+    [{id: 'S13_7'}, {pos: [this.x_46, this.row_13, this.Z_Axis]}],
+    [{id: 'S13_8'}, {pos: [this.x_47, this.row_13, this.Z_Axis]}],
+    [{id: 'S13_9'}, {pos: [this.x_48, this.row_13, this.Z_Axis]}],
+    [{id: 'S13_10'}, {pos: [this.x_49, this.row_13, this.Z_Axis]}],
+    [{id: 'S13_11'}, {pos: [this.x_50, this.row_13, this.Z_Axis]}],
+    [{id: 'S13_12'}, {pos: [this.x_51, this.row_13, this.Z_Axis]}],
+    [{id: 'S13_13'}, {pos: [this.x_52, this.row_13, this.Z_Axis]}],
+    [{id: 'S13_14'}, {pos: [this.x_53, this.row_13, this.Z_Axis]}],
+    [{id: 'S13_15'}, {pos: [this.x_54, this.row_13, this.Z_Axis]}],
+    [{id: 'S13_16'}, {pos: [this.x_55, this.row_13, this.Z_Axis]}],
 
-    [{id: 'S14_1'}, {pos: [this.x_56, this.row_14, this.Z_Axis]}],
-    [{id: 'S14_2'}, {pos: [this.x_57, this.row_14, this.Z_Axis]}],
-    [{id: 'S14_3'}, {pos: [this.x_58, this.row_14, this.Z_Axis]}],
-    [{id: 'S14_4'}, {pos: [this.x_59, this.row_14, this.Z_Axis]}],
-    [{id: 'S14_5'}, {pos: [this.x_60, this.row_14, this.Z_Axis]}],
-    [{id: 'S14_6'}, {pos: [1.625, this.row_14, this.Z_Axis]}],
-    [{id: 'S14_7'}, {pos: [-1.625, this.row_14, this.Z_Axis]}],
-    [{id: 'S14_8'}, {pos: [1.875, this.row_14, this.Z_Axis]}],
-    [{id: 'S14_9'}, {pos: [-1.875, this.row_14, this.Z_Axis]}],
-    [{id: 'S14_10'}, {pos: [2.125, this.row_14, this.Z_Axis]}],
-    [{id: 'S14_11'}, {pos: [-2.125, this.row_14, this.Z_Axis]}],
-    [{id: 'S14_12'}, {pos: [2.375, this.row_14, this.Z_Axis]}],
-    [{id: 'S14_13'}, {pos: [-2.375, this.row_14, this.Z_Axis]}],
-    [{id: 'S14_14'}, {pos: [2.625, this.row_14, this.Z_Axis]}],
-    [{id: 'S14_15'}, {pos: [-2.625, this.row_14, this.Z_Axis]}],
-    [{id: 'S14_16'}, {pos: [2.875, this.row_14, this.Z_Axis]}],
+    [{id: 'S14_1'}, {pos: [this.x_27, this.row_14, this.Z_Axis]}],
+    [{id: 'S14_2'}, {pos: [this.x_26, this.row_14, this.Z_Axis]}],
+    [{id: 'S14_3'}, {pos: [this.x_42, this.row_14, this.Z_Axis]}],
+    [{id: 'S14_4'}, {pos: [this.x_43, this.row_14, this.Z_Axis]}],
+    [{id: 'S14_5'}, {pos: [this.x_44, this.row_14, this.Z_Axis]}],
+    [{id: 'S14_6'}, {pos: [this.x_45, this.row_14, this.Z_Axis]}],
+    [{id: 'S14_7'}, {pos: [this.x_46, this.row_14, this.Z_Axis]}],
+    [{id: 'S14_8'}, {pos: [this.x_47, this.row_14, this.Z_Axis]}],
+    [{id: 'S14_9'}, {pos: [this.x_48, this.row_14, this.Z_Axis]}],
+    [{id: 'S14_10'}, {pos: [this.x_49, this.row_14, this.Z_Axis]}],
+    [{id: 'S14_11'}, {pos: [this.x_50, this.row_14, this.Z_Axis]}],
+    [{id: 'S14_12'}, {pos: [this.x_51, this.row_14, this.Z_Axis]}],
+    [{id: 'S14_13'}, {pos: [this.x_52, this.row_14, this.Z_Axis]}],
+    [{id: 'S14_14'}, {pos: [this.x_53, this.row_14, this.Z_Axis]}],
+    [{id: 'S14_15'}, {pos: [this.x_54, this.row_14, this.Z_Axis]}],
+    [{id: 'S14_16'}, {pos: [this.x_55, this.row_14, this.Z_Axis]}],
 
-    [{id: 'S15_1'}, {pos: [this.x_56, this.row_15, this.Z_Axis]}],
-    [{id: 'S15_2'}, {pos: [this.x_57, this.row_15, this.Z_Axis]}],
-    [{id: 'S15_3'}, {pos: [this.x_58, this.row_15, this.Z_Axis]}],
-    [{id: 'S15_4'}, {pos: [this.x_59, this.row_15, this.Z_Axis]}],
-    [{id: 'S15_5'}, {pos: [this.x_60, this.row_15, this.Z_Axis]}],
-    [{id: 'S15_6'}, {pos: [this.x_61, this.row_15, this.Z_Axis]}],
-    [{id: 'S15_7'}, {pos: [this.x_62, this.row_15, this.Z_Axis]}],
-    [{id: 'S15_8'}, {pos: [this.x_63, this.row_15, this.Z_Axis]}],
-    [{id: 'S15_9'}, {pos: [this.x_64, this.row_15, this.Z_Axis]}],
-    [{id: 'S15_10'}, {pos: [this.x_65, this.row_15, this.Z_Axis]}],
-    [{id: 'S15_11'}, {pos: [this.x_66, this.row_15, this.Z_Axis]}],
-    [{id: 'S15_12'}, {pos: [this.x_67, this.row_15, this.Z_Axis]}],
-    [{id: 'S15_13'}, {pos: [-2.375, this.row_15, this.Z_Axis]}],
-    [{id: 'S15_14'}, {pos: [2.625, this.row_15, this.Z_Axis]}],
-    [{id: 'S15_15'}, {pos: [-2.625, this.row_15, this.Z_Axis]}],
-    [{id: 'S15_16'}, {pos: [2.875, this.row_15, this.Z_Axis]}],
+    [{id: 'S15_1'}, {pos: [this.x_27, this.row_15, this.Z_Axis]}],
+    [{id: 'S15_2'}, {pos: [this.x_26, this.row_15, this.Z_Axis]}],
+    [{id: 'S15_3'}, {pos: [this.x_42, this.row_15, this.Z_Axis]}],
+    [{id: 'S15_4'}, {pos: [this.x_43, this.row_15, this.Z_Axis]}],
+    [{id: 'S15_5'}, {pos: [this.x_44, this.row_15, this.Z_Axis]}],
+    [{id: 'S15_6'}, {pos: [this.x_45, this.row_15, this.Z_Axis]}],
+    [{id: 'S15_7'}, {pos: [this.x_46, this.row_15, this.Z_Axis]}],
+    [{id: 'S15_8'}, {pos: [this.x_47, this.row_15, this.Z_Axis]}],
+    [{id: 'S15_9'}, {pos: [this.x_48, this.row_15, this.Z_Axis]}],
+    [{id: 'S15_10'}, {pos: [this.x_49, this.row_15, this.Z_Axis]}],
+    [{id: 'S15_11'}, {pos: [this.x_50, this.row_15, this.Z_Axis]}],
+    [{id: 'S15_12'}, {pos: [this.x_51, this.row_15, this.Z_Axis]}],
+    [{id: 'S15_13'}, {pos: [this.x_52, this.row_15, this.Z_Axis]}],
+    [{id: 'S15_14'}, {pos: [this.x_53, this.row_15, this.Z_Axis]}],
+    [{id: 'S15_15'}, {pos: [this.x_54, this.row_15, this.Z_Axis]}],
+    [{id: 'S15_16'}, {pos: [this.x_55, this.row_15, this.Z_Axis]}],
 
-    [{id: 'S16_1'}, {pos: [-0.625, this.row_16, this.Z_Axis]}],
-    [{id: 'S16_2'}, {pos: [0.875, this.row_16, this.Z_Axis]}],
-    [{id: 'S16_3'}, {pos: [this.x_56, this.row_16, this.Z_Axis]}],
-    [{id: 'S16_4'}, {pos: [this.x_57, this.row_16, this.Z_Axis]}],
-    [{id: 'S16_5'}, {pos: [this.x_58, this.row_16, this.Z_Axis]}],
-    [{id: 'S16_6'}, {pos: [this.x_59, this.row_16, this.Z_Axis]}],
-    [{id: 'S16_7'}, {pos: [this.x_60, this.row_16, this.Z_Axis]}],
-    [{id: 'S16_8'}, {pos: [this.x_61, this.row_16, this.Z_Axis]}],
-    [{id: 'S16_9'}, {pos: [this.x_62, this.row_16, this.Z_Axis]}],
-    [{id: 'S16_10'}, {pos: [this.x_63, this.row_16, this.Z_Axis]}],
-    [{id: 'S16_11'}, {pos: [this.x_64, this.row_16, this.Z_Axis]}],
-    [{id: 'S16_12'}, {pos: [this.x_65, this.row_16, this.Z_Axis]}],
-    [{id: 'S16_13'}, {pos: [this.x_66, this.row_16, this.Z_Axis]}],
-    [{id: 'S16_14'}, {pos: [this.x_67, this.row_16, this.Z_Axis]}],
+    [{id: 'S16_1'}, {pos: [this.x_25, this.row_16, this.Z_Axis]}],
+    [{id: 'S16_2'}, {pos: [this.x_24, this.row_16, this.Z_Axis]}],
+    [{id: 'S16_3'}, {pos: [this.x_27, this.row_16, this.Z_Axis]}],
+    [{id: 'S16_4'}, {pos: [this.x_26, this.row_16, this.Z_Axis]}],
+    [{id: 'S16_5'}, {pos: [this.x_42, this.row_16, this.Z_Axis]}],
+    [{id: 'S16_6'}, {pos: [this.x_43, this.row_16, this.Z_Axis]}],
+    [{id: 'S16_7'}, {pos: [this.x_44, this.row_16, this.Z_Axis]}],
+    [{id: 'S16_8'}, {pos: [this.x_45, this.row_16, this.Z_Axis]}],
+    [{id: 'S16_9'}, {pos: [this.x_46, this.row_16, this.Z_Axis]}],
+    [{id: 'S16_10'}, {pos: [this.x_47, this.row_16, this.Z_Axis]}],
+    [{id: 'S16_11'}, {pos: [this.x_48, this.row_16, this.Z_Axis]}],
+    [{id: 'S16_12'}, {pos: [this.x_49, this.row_16, this.Z_Axis]}],
+    [{id: 'S16_13'}, {pos: [this.x_50, this.row_16, this.Z_Axis]}],
+    [{id: 'S16_14'}, {pos: [this.x_51, this.row_16, this.Z_Axis]}],
 
-    [{id: 'S17_1'}, {pos: [-0.375, this.row_17, this.Z_Axis]}],
-    [{id: 'S17_2'}, {pos: [0.625, this.row_17, this.Z_Axis]}],
-    [{id: 'S17_3'}, {pos: [-0.625, this.row_17, this.Z_Axis]}],
-    [{id: 'S17_4'}, {pos: [0.875, this.row_17, this.Z_Axis]}],
-    [{id: 'S17_5'}, {pos: [this.x_56, this.row_17, this.Z_Axis]}],
-    [{id: 'S17_6'}, {pos: [this.x_57, this.row_17, this.Z_Axis]}],
-    [{id: 'S17_7'}, {pos: [this.x_58, this.row_17, this.Z_Axis]}],
-    [{id: 'S17_8'}, {pos: [this.x_59, this.row_17, this.Z_Axis]}],
-    [{id: 'S17_9'}, {pos: [this.x_60, this.row_17, this.Z_Axis]}],
-    [{id: 'S17_10'}, {pos: [this.x_61, this.row_17, this.Z_Axis]}],
-    [{id: 'S17_11'}, {pos: [this.x_62, this.row_17, this.Z_Axis]}],
-    [{id: 'S17_12'}, {pos: [this.x_63, this.row_17, this.Z_Axis]}],
-    [{id: 'S17_13'}, {pos: [this.x_64, this.row_17, this.Z_Axis]}],
-    [{id: 'S17_14'}, {pos: [this.x_65, this.row_17, this.Z_Axis]}],
-    [{id: 'S17_15'}, {pos: [this.x_66, this.row_17, this.Z_Axis]}],
-    [{id: 'S17_16'}, {pos: [this.x_67, this.row_17, this.Z_Axis]}]
+    [{id: 'S17_1'}, {pos: [this.x_23, this.row_17, this.Z_Axis]}],
+    [{id: 'S17_2'}, {pos: [this.x_22, this.row_17, this.Z_Axis]}],
+    [{id: 'S17_3'}, {pos: [this.x_25, this.row_17, this.Z_Axis]}],
+    [{id: 'S17_4'}, {pos: [this.x_24, this.row_17, this.Z_Axis]}],
+    [{id: 'S17_5'}, {pos: [this.x_27, this.row_17, this.Z_Axis]}],
+    [{id: 'S17_6'}, {pos: [this.x_26, this.row_17, this.Z_Axis]}],
+    [{id: 'S17_7'}, {pos: [this.x_42, this.row_17, this.Z_Axis]}],
+    [{id: 'S17_8'}, {pos: [this.x_43, this.row_17, this.Z_Axis]}],
+    [{id: 'S17_9'}, {pos: [this.x_44, this.row_17, this.Z_Axis]}],
+    [{id: 'S17_10'}, {pos: [this.x_45, this.row_17, this.Z_Axis]}],
+    [{id: 'S17_11'}, {pos: [this.x_46, this.row_17, this.Z_Axis]}],
+    [{id: 'S17_12'}, {pos: [this.x_47, this.row_17, this.Z_Axis]}],
+    [{id: 'S17_13'}, {pos: [this.x_48, this.row_17, this.Z_Axis]}],
+    [{id: 'S17_14'}, {pos: [this.x_49, this.row_17, this.Z_Axis]}],
+    [{id: 'S17_15'}, {pos: [this.x_50, this.row_17, this.Z_Axis]}],
+    [{id: 'S17_16'}, {pos: [this.x_51, this.row_17, this.Z_Axis]}]
   ];
+
+  red = '#972323';
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      opacity: this.opacity,
+      visible: false
+    };
+
+    this.fadeIn = this.fadeIn.bind(this);
+    this.tweenUpdate = this.tweenUpdate.bind(this);
+    this.fadeOut = this.fadeOut.bind(this);
+  }
+
+  //FadeIn Animation
+
+  fadeIn() {
+    this.setState({visible: true});
+
+    let newOpacity = { x: 1 };
+    let tween = new TWEEN.Tween(this.opacity).to(newOpacity, 500);
+    tween.start();
+
+    tween.onUpdate(this.tweenUpdate);
+  }
+
+  //FadeOut Animation
+
+  fadeOut() {
+    setTimeout(() => {this.setState({visible: false})}, 501);
+
+    let newOpacity = { x: 0 };
+    let tween = new TWEEN.Tween(this.opacity).to(newOpacity, 500);
+    tween.start();
+
+    tween.onUpdate(this.tweenUpdate);
+  }
+
+  tweenUpdate() {
+    this.setState({ opacity: this.opacity });
+  }
 
   render() {
     return (
