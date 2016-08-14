@@ -36,7 +36,7 @@ class AppScene extends React.Component {
   render () {
 
     return (
-      <Scene stats="">
+      <Scene>
         <Assets introAnimation={this.introAnimation}/>
         <Camera handleChangeSeatClick={ this.handleChangeSeatClick }
                 ref="camera" />
