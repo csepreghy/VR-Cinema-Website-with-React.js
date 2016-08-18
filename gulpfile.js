@@ -4,5 +4,5 @@ var gulp = require('gulp'),
 gulp.task('default', function() {
 	gulp.src('build/*.js')
 	.pipe(uglify())
-	.pipe(gulp.dest('minjsbuild'))
+	.pipe(gulp.dest('build'))
 	})
