@@ -543,11 +543,11 @@ export default class Camera extends React.Component {
 
     let tween = new TWEEN.Tween(this.navTextOpacity).to(newOpacity, 1000);
     tween.easing(TWEEN.Easing.Cubic.InOut);
-    tween.delay(12000);
+    tween.delay(10000);
     tween.start();
     tween.onUpdate(this.tweenNavTextOpacityUpdate);
 
-    setTimeout(() => {this.fadeNavTextOut()}, 18000);
+    setTimeout(() => {this.fadeNavTextOut()}, 16000);
   }
 
   fadeNavTextOut() {
@@ -584,8 +584,8 @@ export default class Camera extends React.Component {
   introAnimation() {
     let movie = document.querySelector('#movie');
     movie.play();
-    this.moveToNewView(this.seatCoordinates.CV_intro_2, 6000, 3000);
-    setTimeout(() => {this.moveToNewView(this.seatCoordinates.S7_1, 5000, 0)}, 8000);
+    this.moveToNewView(this.seatCoordinates.CV_intro_2, 4000, 2000);
+    setTimeout(() => {this.moveToNewView(this.seatCoordinates.S7_1, 3000, 0)}, 6000);
     this.fadeNavTextIn();
   }
 

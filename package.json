@@ -19,10 +19,9 @@
     "preghpages": "npm run build && rm -rf gh-pages && cp -r src gh-pages && cp index.html build/bundle.js gh-pages",
     "ghpages": "npm run preghpages && ghpages -p gh-pages",
     "gh-pages": "npm run ghpages",
-    "serve": "cd src && python -m SimpleHTTPServer 5555",
     "start": "webpack-dev-server --content-base src --progress --watch --history-api-fallback --inline --hot",
-    "deploy": "rm -rf build && npm run build && gulp && cp index.html build/index.html && cp -a src/assets build",
-    "copy": "cp -a src/assets build/assets"
+    "deploy": "rm -rf build && npm run build && cp index.html build/index.html && cp -a src/assets buildl",
+    "deploymin": "rm -rf build && npm run build && gulp && cp src/index.html build/index.html && cp -a src/assets build"
   },
   "repository": {
     "type": "git",
@@ -51,7 +50,6 @@
     "babel-runtime": "^6.3.13",
     "css-loader": "^0.23.0",
     "eslint-plugin-react": "^5.0.1",
-    "ghpages": "0.0.3",
     "gulp-uglify": "^1.5.3",
     "json-loader": "^0.5.4",
     "style-loader": "^0.13.0",
