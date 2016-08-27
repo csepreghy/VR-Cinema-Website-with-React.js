@@ -1,0 +1,60 @@
+#  ==========================================================================
+#  Wavefront Material file
+#  Exported by Red-i Productions' "Riptide Pro"
+#  (a commercial plugin for Cinema 4D PC & Mac, R9.6 or later)
+#  
+#  Red-i Productions
+#  http://skinprops.com
+#  
+#  ==========================================================================
+
+newmtl Door
+Kd 0.920000 0.920000 0.920000
+illum 1
+
+newmtl padlo
+Kd 1.000000 0.380000 0.386813
+illum 1
+map_Kd floor_carpet_red.jpg
+
+newmtl brown
+Kd 0.153061 0.086735 0.000000
+illum 1
+
+newmtl plafon
+Kd 0.952941 0.945098 0.815686
+illum 1
+
+newmtl fal
+Kd 0.314471 0.115176 0.000000
+illum 1
+
+newmtl Speaker
+Kd 0.000000 0.000000 0.000000
+illum 1
+
+newmtl fal_kijevetel
+Kd 0.314471 0.042706 0.045294
+illum 1
+
+newmtl lights_glow
+Ka 0.760000 0.760000 0.637804
+Kd 1.000000 0.945098 0.780392
+illum 1
+
+newmtl canvas_glow
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+illum 1
+
+newmtl poharak
+Kd 0.000000 0.000000 0.000000
+illum 1
+
+newmtl Velvet
+Kd 1.000000 0.000000 0.000000
+illum 1
+map_Kd velvet texture.jpg
+
+newmtl default_Mat
+illum 1
