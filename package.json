@@ -20,7 +20,7 @@
     "ghpages": "npm run preghpages && ghpages -p gh-pages",
     "gh-pages": "npm run ghpages",
     "start": "webpack-dev-server --content-base src --progress --watch --history-api-fallback --inline --hot",
-    "deploy": "rm -rf build && npm run build && cp index.html build/index.html && cp -a src/assets build",
+    "deploy": "rm -rf build && npm run build && cp src/index.html build/index.html && cp -a src/assets build",
     "deploymin": "rm -rf build && npm run build && gulp && cp src/index.html build/index.html && cp -a src/assets build"
   },
   "repository": {
